@@ -255,8 +255,23 @@ ul > :where(:not(:first-child)) {
     <input type="submit" title="Search" value="Submit" />
 </form>
 
-      <h4></h4>
-      <form
+
+      <h4>To Base64</h4>
+
+      <textarea id="base64-input" cols="30" rows="8"></textarea>
+      <textarea id="base64-output" cols="30" rows="8"></textarea>
+      <script type="module">
+      const base64Input = document.querySelector('#base64-input')
+      const base64Output = document.querySelector('#base64-output')
+      base64Input.addEventListener('input', (event) => {
+        base64Output.value = btoa(base64Input.value) 
+
+
+      })
+    </script>
+
+
+
 
     </main>
 
@@ -269,6 +284,7 @@ ul > :where(:not(:first-child)) {
         <a href="https://links.alanwsmith.com">other sites</a>
       </div>
     </footer>
+
 
   </body>
 </html>
