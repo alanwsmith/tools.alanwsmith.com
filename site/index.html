@@ -240,8 +240,40 @@ ul > :where(:not(:first-child)) {
         <p>My collection of online tools for doing various things</p>
       </hgroup>
 
-      <h2>Introduction</h2>
-      <p>I'm just getting started with this. More to come as I make them.</p>
+      <h2>Useful Forms</h2>
+      <div>
+        <form method="get" action="https://www.etymonline.com/search">
+          <label for="etymonline-input">Online Etymology Dictionary</label>
+          <div>
+            <input type="text" value="" name="q" id="etymonline-input" />
+            <input type="submit" title="Search" value="Submit" />
+          </div>
+        </form>
+      </div>
+      <div>
+        <form class="pure-form" id="search-form" action="https://www.wikipedia.org/search-redirect.php" data-el-section="search">
+          <label for="searchInput">Wikipedia</label>
+          <div>
+            <input id="searchInput" name="search" type="search">
+            <input type="hidden" name="family" value="Wikipedia">
+            <input type="hidden" id="hiddenLanguageInput" name="language" value="en">
+            <input type="hidden" value="Go" name="go">
+            <input type="hidden" id="searchLanguage" name="language" value="en">
+            <input type="submit" title="Search" value="Submit" />
+          </div>
+        </form>
+      </div>
+
+          <div class="styled-select-active-helper"></div>
+          </div>
+          <i class="sprite svg-arrow-down"></i>
+          </div>
+          <div id="typeahead-suggestions"></div></div>
+          <button class="pure-button pure-button-primary-progressive" type="submit">
+          <i class="sprite svg-search-icon" data-jsl10n="search-input-button">Search</i>
+          </button>
+
+
 
       <h2>The Tools</h2>
       <ul>
@@ -269,21 +301,9 @@ ul > :where(:not(:first-child)) {
 
 
 
-
-      <h2>The Forms</h2>
-      <p>
-        Forms that go to other sites for various things
-      </p>
-
-<form method="get" action="https://www.etymonline.com/search">
-    <label for="etymonline-input">Online Etymology Dictionary</label>
-    <input type="text" value="" name="q" id="etymonline-input" />
-    <input type="submit" title="Search" value="Submit" />
-</form>
-
+      <h2>Text Formatters</h2>
 
       <h4>To Base64</h4>
-
       <textarea id="base64-input" cols="30" rows="8"></textarea>
       <textarea id="base64-output" cols="30" rows="8"></textarea>
       <script type="module">
@@ -292,7 +312,7 @@ ul > :where(:not(:first-child)) {
       base64Input.addEventListener('input', (event) => {
         base64Output.value = btoa(base64Input.value) 
       })
-    </script>
+      </script>
 
 
 
