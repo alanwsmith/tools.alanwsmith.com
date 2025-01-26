@@ -219,6 +219,10 @@ section {
   --flow-space: 1.3em;
 }
 
+.superscript-numbers div {
+  padding-inline: 1rem;
+}
+
 ul > :where(:not(:first-child)) {
   margin-top: 1em;
 }
@@ -244,6 +248,28 @@ ul > :where(:not(:first-child)) {
         <li><a href="https://svg-button-maker.alanwsmith.com/">SVG Button Maker</a></li>
       </ul>
 
+      <h2>Footnote Characters</h2>
+      <p>
+        For using instead of <code>sup</code> tags which 
+        may or may not work in different clients
+      </p>
+      <div class="superscript-numbers">
+        <div>⁰</div>
+        <div>¹</div>
+        <div>²</div>
+        <div>³</div>
+        <div>⁴</div>
+        <div>⁵</div>
+        <div>⁶</div>
+        <div>⁷</div>
+        <div>⁸</div>
+        <div>⁹</div>
+      </div>
+
+
+
+
+
       <h2>The Forms</h2>
       <p>
         Forms that go to other sites for various things
@@ -265,8 +291,6 @@ ul > :where(:not(:first-child)) {
       const base64Output = document.querySelector('#base64-output')
       base64Input.addEventListener('input', (event) => {
         base64Output.value = btoa(base64Input.value) 
-
-
       })
     </script>
 
