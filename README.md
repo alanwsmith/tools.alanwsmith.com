@@ -1,8 +1,7 @@
-# HTML Template
+# Alan's Tools 
 
-This is my starting HTML template and
-supporting files that I drop in to create
-a new site. 
+My quick reference collection of online
+tools.
 
-examples at: [links.alanwsmith.com](https://links.alanwsmith.com/)
+[tools.alanwsmith.com](https://tools.alanwsmith.com/)
 

@@ -233,7 +233,8 @@ ul > :where(:not(:first-child)) {
   <body>
     <header>
       <a href="https://www.alanwsmith.com">alanwsmith.com</a> ~
-      <a href="https://links.alanwsmith.com">other projects</a>
+      <a href="https://links.alanwsmith.com">other projects</a> ~
+      <a href="https://socials.alanwsmith.com/">socials</a>
     </header>
 
     <main class="flow"> 
@@ -317,14 +318,127 @@ ul > :where(:not(:first-child)) {
         <div>⸸</div>
       </div>
 
+      <h2>Characters</h2>
+      <div>™</div>
+      <div>©</div>
+
+      <h2>Calculators</h2>
+      <h3>Width And Height From Area And Ratio (Floored)</h3>
+
+      <div>
+        <label for="whfar-area">Area</label>
+        <input type="number" id="whfar-area">
+      </div>
+
+      <div>
+        <label for="whfar-ratio-width">Ratio Width</label>
+        <input type="number" id="whfar-ratio-width">
+      </div>
+
+      <div>
+        <label for="whfar-ratio-height">Ratio Height</label>
+        <input type="number" id="whfar-ratio-height">
+      </div>
+
+      <div>
+        <label for="whfar-width">Width</label>
+        <input type="text" id="whfar-width">
+      </div>
+
+      <div>
+        <label for="whfar-height">Height</label>
+        <input type="text" id="whfar-height">
+      </div>
+
+      <div>
+        <label for="whfar-width-floored">Width (floored)</label>
+        <input type="text" id="whfar-width-floored">
+      </div>
+
+      <div>
+        <label for="whfar-height-floored">Height (floored)</label>
+        <input type="text" id="whfar-height-floored">
+      </div>
+
+      <div>
+        <label for="whfar-floored-area">Floored Area</label>
+        <input type="text" id="whfar-floored-area">
+      </div>
+
+
+      <script type="module">
+        const areaEl = document.querySelector('#whfar-area');
+        const ratioWidthEl = document.querySelector('#whfar-ratio-width');
+        const ratioHeightEl = document.querySelector('#whfar-ratio-height');
+        const widthEl = document.querySelector('#whfar-width');
+        const heightEl = document.querySelector('#whfar-height');
+        const widthFlooredEl = document.querySelector('#whfar-width-floored');
+        const heightFlooredEl = document.querySelector('#whfar-height-floored');
+        const flooredAreaEl = document.querySelector('#whfar-floored-area');
+        areaEl.addEventListener('input', updateWidthAndHeight);
+        ratioWidthEl.addEventListener('input', updateWidthAndHeight);
+        ratioHeightEl.addEventListener('input', updateWidthAndHeight);
+
+        function updateWidthAndHeight() {
+          if (areaEl.value !== '' && ratioWidthEl.value !== '' && ratioHeightEl.value !== '') {
+            const area = parseInt(areaEl.value, 10);
+            const ratioWidth = parseInt(ratioWidthEl.value, 10);
+            const ratioHeight = parseInt(ratioHeightEl.value, 10);
+            const base = widthAndHeightFromAreaAndRatio(
+              area, ratioWidth, ratioHeight
+            );
+            widthEl.value = base.width;
+            heightEl.value = base.height;
+            const floored = widthAndHeightFromAreaAndRatioFloored(
+              area, ratioWidth, ratioHeight
+            );
+            widthFlooredEl.value = floored.width;
+            heightFlooredEl.value = floored.height;
+            flooredAreaEl.value = floored.coverage;
+          }
+        }
+
+        function widthAndHeightFromAreaAndRatio(area, ratioWidth, ratioHeight) {
+          const ratio = ratioHeight / ratioWidth;
+          const width = Math.sqrt(area / ratio);
+          const height = Math.sqrt(area * ratio);
+          return { "width": width, "height": height };
+        }
+
+        function widthAndHeightFromAreaAndRatioFloored(area, ratioWidth, ratioHeight) {
+          const ratio = ratioHeight / ratioWidth;
+          const width = Math.floor(Math.sqrt(area / ratio));
+          const height = Math.floor(Math.sqrt(area * ratio));
+          const coverage = width * height;
+          return { 
+            "width": width, 
+            "height": height,
+            "coverage": coverage
+          };
+        }
+
+      </script>
+
+
+
 
 
 
       <h2>Text Formatters</h2>
 
-      <h4>To Base64</h4>
+      <h3>To Base64</h3>
+      <div>
+      <label for="base64-input">Text Input</label>
+      </div>
+      <div>
       <textarea id="base64-input" cols="30" rows="8"></textarea>
+      </div>
+      <div>
+      <label for="base64-output">Base64 Output</label>
+      </div>
+      <div>
       <textarea id="base64-output" cols="30" rows="8"></textarea>
+      </div>
       <script type="module">
       const base64Input = document.querySelector('#base64-input')
       const base64Output = document.querySelector('#base64-output')
@@ -344,7 +458,8 @@ ul > :where(:not(:first-child)) {
       </div>
       <div>
         <a href="https://github.com/alanwsmith/tools.alanwsmith.com">source code</a> ~
-        <a href="https://links.alanwsmith.com">other sites</a>
+        <a href="https://links.alanwsmith.com">other projects</a> ~
+        <a href="https://socials.alanwsmith.com">socials</a>
       </div>
     </footer>
 
