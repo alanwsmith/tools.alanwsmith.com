@@ -236,7 +236,7 @@ style.innerHTML = `
 `;
 
 const template = `
-<details open>
+<details>
 	<summary>Random Animal</summary>
 	<div class="wrapper">
   		<div class="animal-name"></div>
