@@ -312,6 +312,41 @@ main {
 
       <div class="flex">
         <div>
+          <label for="searchbox_input">duck duck go</label>
+          <div>
+            <form
+              class="searchbox_form__QGHIz"
+              role="search"
+              aria-label="Searchbox"
+              id="searchbox_homepage"
+              method="GET"
+              action="https://duckduckgo.com/"
+            >
+              <input type="hidden" name="t" value="h_" />
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--:r2:"
+                aria-expanded="true"
+                aria-haspopup="listbox"
+                aria-label="Search with DuckDuckGo"
+                role="combobox"
+                class="searchbox_input__rnFzM"
+                type="text"
+                name="q"
+                autocomplete="off"
+                id="searchbox_input"
+                autocapitalize="none"
+                autocorrect="off"
+                required=""
+                minlength="1"
+                value=""
+                autofocus
+              />
+            </form>
+          </div>
+        </div>
+
+        <div>
           <label for="cargo-desktop-search">crates.io</label>
           <div>
             <form
@@ -328,7 +363,6 @@ main {
                 inputmode="search"
                 name="q"
                 id="cargo-desktop-search"
-                autofocus=""
                 required=""
                 aria-label="Search"
                 type="text"
@@ -589,9 +623,7 @@ main {
           </div>
         </div>
 
-
-
-            <!--
+        <!--
         <div>
           <form
             id="search-form"
@@ -625,12 +657,10 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         <!-- end forms -->
       </div>
 
-
-        <ul>
-          <li>Thesaurus needs fix</li>
-          <li>Add Internet Archive</li>
-        </ul>
-
+      <ul>
+        <li>Thesaurus needs fix</li>
+        <li>Add Internet Archive</li>
+      </ul>
 
       <hr />
 
