@@ -34,8 +34,8 @@ textarea {
 `;
 
 const template = `
-<details open>
-  <summary><strong>Multiline Replacer</strong></summary>
+<details>
+  <summary>Multiline Replacer</summary>
   <div class="wrapper">
     <div>
       <div>

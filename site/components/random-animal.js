@@ -229,15 +229,21 @@ style.innerHTML = `
 .color-name {
   color: var(--the-color);
 }
+.wrapper {
+	margin-top: 1.4rem;
+	padding-inline: 2.2rem;
+}
 `;
 
 const template = `
-<h3>Random Animal</h3>
-<div class="wrapper">
-  <div class="animal-name"></div>
-  <button>Get another one</button>
-<div class="copy-button"></div>
-</div>
+<details open>
+	<summary>Random Animal</summary>
+	<div class="wrapper">
+  		<div class="animal-name"></div>
+  		<button>Get another one</button>
+		<div class="copy-button"></div>
+	</div>
+</details>
 `;
 
 class RandomColor extends HTMLElement {

@@ -161,6 +161,8 @@ style.innerHTML = `
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
+	margin-top: 1.4rem;
+	padding-inline: 2.2rem;
 }
 .color-chip {
   height: 2rem;
@@ -172,13 +174,15 @@ style.innerHTML = `
 `;
 
 const template = `
-<h3>Random HTML Color</h3>
+<details open>
+<summary>Random HTML Color</summary>
 <div class="wrapper">
   <div class="color-name"></div>
   <div class="color-chip"></div>
   <button>Get another one</button>
   <div class="copy-button-wrapper"></div>
 </div>
+</details>
 `;
 
 class RandomColor extends HTMLElement {

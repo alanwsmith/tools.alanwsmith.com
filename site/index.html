@@ -107,10 +107,11 @@
       * {
         margin: 0;
       }
-
+      /*
       ::marker {
         color: var(--accent-color-1);
       }
+*/
 
       html {
         color-scheme: light dark;
@@ -314,10 +315,14 @@ main {
     </header>
 
     <main class="flow">
-      <hgroup>
+      <hgroup class="flow">
         <h1>Alan's Tools</h1>
-        <p>My collection of online tools for doing various things</p>
-        <p>Still very much a work-in-progress</p>
+        <p>
+          My collection of online tools for doing various things. I use it as my
+          new tab page (when I can get that to work in whatever browser I happen
+          to be using)
+        </p>
+        <p>It's an ongoing work-in-progress</p>
       </hgroup>
 
       <div class="default-flex">
@@ -667,17 +672,15 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         <!-- end forms -->
       </div>
 
-      <ul>
-        <li>Thesaurus needs fix</li>
-        <li>Add Internet Archive</li>
-      </ul>
+      <div class="xlarge-flex">
+        <span>TODO: Thesaurus needs fix</span>
+        <span>TODO: Add Internet Archive</span>
+      </div>
 
       <hr />
 
       <random-color></random-color>
       <script type="module" src="components/random-color.js"></script>
-
-      <hr />
 
       <random-animal></random-animal>
       <script type="module" src="components/random-animal.js"></script>
@@ -687,42 +690,66 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <multiline-replacer></multiline-replacer>
       <script type="module" src="components/multiline-replacer.js"></script>
 
-      <hr />
-
-      <details class="flow">
-        <summary>links</summary>
-        <div class="default-flex">
-          <a href="https://svg-button-maker.alanwsmith.com/"
-            >SVG Button Maker</a
-          >
-          <a href="https://www.remove.bg/">remove.bg</a>
-          <a href="https://svgomg.net/">SVG OMG</a>
-          <a href="https://www.svgrepo.com/">SVG Repo</a>
-          <a href="https://base64.guru/converter/encode/image/png"
-            >PNG To Base64</a
-          >
-          <a href="https://wpt.fyi/interop-2025"
-            >Web Platform Tests: Interop 2025</a
-          >
+      <details>
+        <summary>Sort Lines Alphabetically</summary>
+        <div>
+          <label for="sort-list-input">Text Input</label>
         </div>
+        <div>
+          <textarea id="sort-list-input" cols="30" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="sort-list-output">Alphabetizes Output</label>
+        </div>
+        <div>
+          <textarea id="sort-list-output" cols="30" rows="8"></textarea>
+        </div>
+        <script type="module">
+          function alphabetize() {
+            const input = getText('sort-list-input')
+            let lines = input.split('\n')
+            log(lines)
+            lines.sort((a, b) => {
+              const aCheck = a.toLowerCase()
+              const bCheck = b.toLowerCase()
+              if (aCheck < bCheck) {
+                return -1
+              }
+              if (aCheck > bCheck) {
+                return 1
+              }
+              return 0
+            })
+            log(lines)
+            const output = lines.join('\n')
+            setIdToValue('sort-list-output', output)
+          }
+          addInputListenerToId(alphabetize, 'sort-list-input')
+        </script>
       </details>
 
-      <hr />
-
-      <details class="flow">
-        <summary>Color Pickers</summary>
-        <div class="default-flex">
-          <a href="https://accessiblepalette.com/">Accessible Palette</a>
-          <a href="https://coolors.co/">Coolors</a>
-          <a href="https://stephango.com/flexoki">Flexoki</a>
-          <a href="https://gogh-co.github.io/Gogh/">Goghy</a>
-          <a href="https://www.happyhues.co/">Happy Hues</a>
-          <a href="https://rootloops.sh/">Root Loops</a>
-          <a href="https://terminal.sexy/">Terminal Sexy</a>
+      <details>
+        <summary>To Base64</summary>
+        <div>
+          <label for="base64-input">Text Input</label>
         </div>
+        <div>
+          <textarea id="base64-input" cols="30" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="base64-output">Base64 Output</label>
+        </div>
+        <div>
+          <textarea id="base64-output" cols="30" rows="8"></textarea>
+        </div>
+        <script type="module">
+          const base64Input = document.querySelector('#base64-input')
+          const base64Output = document.querySelector('#base64-output')
+          base64Input.addEventListener('input', (event) => {
+            base64Output.value = btoa(base64Input.value)
+          })
+        </script>
       </details>
-
-      <hr />
 
       <details class="default-flex">
         <summary>Footnote Characters</summary>
@@ -763,6 +790,55 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </p>
       </details>
 
+      <hr />
+
+      <details class="flow">
+        <summary>color pickers</summary>
+        <div class="default-flex">
+          <a href="https://colors.alanwsmith.com/">My Color Picker (v4)</a>
+          <a href="https://color-picker.alanwsmith.com/"
+            >My Color Picker (v3)</a
+          >
+          <a href="https://fonts-and-colors.alanwsmith.com/"
+            >My Color Picker (v2)</a
+          >
+          <a href="https://color-palettes.alanwsmith.com/"
+            >My Color Picker (v1)</a
+          >
+          <a href="https://color-scheme-switcher.alanwsmith.com/"
+            >Theme switcher prototype</a
+          >
+          <a href="https://accessiblepalette.com/">Accessible Palette</a>
+          <a href="https://coolors.co/">Coolors</a>
+          <a href="https://stephango.com/flexoki">Flexoki</a>
+          <a href="https://gogh-co.github.io/Gogh/">Goghy</a>
+          <a href="https://www.happyhues.co/">Happy Hues</a>
+          <a href="https://rootloops.sh/">Root Loops</a>
+          <a href="https://terminal.sexy/">Terminal Sexy</a>
+        </div>
+      </details>
+
+      <details class="flow">
+        <summary>misc</summary>
+        <div class="default-flex">
+          <a href="https://links.alanwsmith.com/">my links</a>
+          <a href="https://svg-button-maker.alanwsmith.com/"
+            >SVG Button Maker</a
+          >
+          <a href="https://www.remove.bg/">remove.bg</a>
+          <a href="https://svgomg.net/">SVG OMG</a>
+          <a href="https://www.svgrepo.com/">SVG Repo</a>
+          <a href="https://base64.guru/converter/encode/image/png"
+            >PNG To Base64</a
+          >
+          <a href="https://wpt.fyi/interop-2025"
+            >Web Platform Tests: Interop 2025</a
+          >
+        </div>
+      </details>
+
+      <hr />
+
       <!--
 
       <h3>Factors Of A Number</h3>
@@ -774,6 +850,8 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         <label for="factors-output">Factors</label>
         <input type="text" id="factors-output" />
       </div>
+
+-->
 
       <script type="module">
         function getFactors(number) {
@@ -794,9 +872,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         })
       </script>
 
--->
-
-      <hr />
 
       <details class="flow">
         <summary>Calculate Ratio</summary>
@@ -848,8 +923,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           addInputListenerToId(findRatio, 'ratio-input-height')
         </script>
       </details>
-
-      <hr />
 
       <details class="flow">
         <summary>Width And Height From Area And Ratio (Floored)</summary>
@@ -964,64 +1037,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           }
         </script>
       </details>
-
-
-      <h3>Sort List</h3>
-      <div>
-        <label for="sort-list-input">Text Input</label>
-      </div>
-      <div>
-        <textarea id="sort-list-input" cols="30" rows="8"></textarea>
-      </div>
-      <div>
-        <label for="sort-list-output">Alphabetizes Output</label>
-      </div>
-      <div>
-        <textarea id="sort-list-output" cols="30" rows="8"></textarea>
-      </div>
-      <script type="module">
-        function alphabetize() {
-          const input = getText('sort-list-input')
-          let lines = input.split('\n')
-          log(lines)
-          lines.sort((a, b) => {
-            const aCheck = a.toLowerCase()
-            const bCheck = b.toLowerCase()
-            if (aCheck < bCheck) {
-              return -1
-            }
-            if (aCheck > bCheck) {
-              return 1
-            }
-            return 0
-          })
-          log(lines)
-          const output = lines.join('\n')
-          setIdToValue('sort-list-output', output)
-        }
-        addInputListenerToId(alphabetize, 'sort-list-input')
-      </script>
-
-      <h3>To Base64</h3>
-      <div>
-        <label for="base64-input">Text Input</label>
-      </div>
-      <div>
-        <textarea id="base64-input" cols="30" rows="8"></textarea>
-      </div>
-      <div>
-        <label for="base64-output">Base64 Output</label>
-      </div>
-      <div>
-        <textarea id="base64-output" cols="30" rows="8"></textarea>
-      </div>
-      <script type="module">
-        const base64Input = document.querySelector('#base64-input')
-        const base64Output = document.querySelector('#base64-output')
-        base64Input.addEventListener('input', (event) => {
-          base64Output.value = btoa(base64Input.value)
-        })
-      </script>
     </main>
 
     <footer>
