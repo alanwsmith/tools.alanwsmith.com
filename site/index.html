@@ -155,7 +155,7 @@
       }
 
       .flow > :where(:not(:first-child)) {
-        margin-top: var(--flow-space, 2.5rem);
+        margin-top: var(--flow-space, 1.5rem);
       }
 
       footer {
@@ -288,10 +288,20 @@ main {
         --xxxlarge-width: min(86rem, 96%);
       }
 
-      .flex {
+      .default-flex {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+      }
+      .large-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4rem;
+      }
+      .xlarge-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.7rem;
       }
     </style>
   </head>
@@ -310,7 +320,7 @@ main {
         <p>Still very much a work-in-progress</p>
       </hgroup>
 
-      <div class="flex">
+      <div class="default-flex">
         <div>
           <label for="searchbox_input">duck duck go</label>
           <div>
@@ -679,46 +689,38 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
-      <hr />
-
-      <h2>Misc Tools</h2>
-      <ul>
-        <li>
+      <details class="flow" open>
+        <summary>links</summary>
+        <div class="default-flex">
           <a href="https://svg-button-maker.alanwsmith.com/"
             >SVG Button Maker</a
           >
-        </li>
-      </ul>
-
-      <hr />
-
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://www.remove.bg/">remove.bg</a></li>
-        <li><a href="https://svgomg.net/">SVG OMG</a></li>
-        <li><a href="https://www.svgrepo.com/">SVG Repo</a></li>
-        <li>
+          <a href="https://www.remove.bg/">remove.bg</a>
+          <a href="https://svgomg.net/">SVG OMG</a>
+          <a href="https://www.svgrepo.com/">SVG Repo</a>
           <a href="https://base64.guru/converter/encode/image/png"
             >PNG To Base64</a
           >
-        </li>
-        <li>
           <a href="https://wpt.fyi/interop-2025"
-            >Web Platform Tests - Interop 2025</a
+            >Web Platform Tests: Interop 2025</a
           >
-        </li>
-      </ul>
+        </div>
+      </details>
 
-      <h2>Color Pickers</h2>
-      <ul>
-        <li><a href="https://accessiblepalette.com/">Accessible Palette</a></li>
-        <li><a href="https://coolors.co/">Coolors</a></li>
-        <li><a href="https://stephango.com/flexoki">Flexoki</a></li>
-        <li><a href="https://gogh-co.github.io/Gogh/">Goghy</a></li>
-        <li><a href="https://www.happyhues.co/">Happy Hues</a></li>
-        <li><a href="https://rootloops.sh/">Root Loops</a></li>
-        <li><a href="https://terminal.sexy/">Terminal Sexy</a></li>
-      </ul>
+      <hr />
+
+      <details class="flow" open>
+        <summary>Color Pickers</summary>
+        <div class="default-flex">
+          <a href="https://accessiblepalette.com/">Accessible Palette</a>
+          <a href="https://coolors.co/">Coolors</a>
+          <a href="https://stephango.com/flexoki">Flexoki</a>
+          <a href="https://gogh-co.github.io/Gogh/">Goghy</a>
+          <a href="https://www.happyhues.co/">Happy Hues</a>
+          <a href="https://rootloops.sh/">Root Loops</a>
+          <a href="https://terminal.sexy/">Terminal Sexy</a>
+        </div>
+      </details>
 
       <hr />
 
@@ -730,7 +732,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         investigate further to see what's up. TODO: probably use character codes
         instead.
       </p>
-      <div class="flex">
+      <div class="default-flex">
         <div>⁰</div>
         <div>¹</div>
         <div>²</div>
@@ -745,7 +747,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         <div>‡</div>
         <div>⸸</div>
       </div>
-      <div class="flex">
+      <div class="default-flex">
         <div>™</div>
         <div>©</div>
       </div>
