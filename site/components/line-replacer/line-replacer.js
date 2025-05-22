@@ -45,6 +45,7 @@ const template = `
       <div>
         <p>Output</p>
         <textarea class="out"></textarea>
+	<div class="copy-button"></div>
       </div>
     </div>
     <div>
@@ -61,6 +62,40 @@ class LineReplacer extends HTMLElement {
 		this.attachShadow({ mode: "open" });
 	}
 
+	addCopyButtonTo(codeSelector, buttonParentSelector) {
+		const codeEl = this.shadowRoot.querySelector(codeSelector);
+		const buttonParentEl = this.shadowRoot.querySelector(buttonParentSelector);
+		const copyButton = document.createElement("button");
+		copyButton.innerHTML = "Copy";
+		copyButton.dataset.target = codeSelector;
+		copyButton.addEventListener("click", async (event) => {
+			const elToCopy = this.shadowRoot.querySelector(
+				event.target.dataset.target,
+			);
+			console.log(elToCopy);
+			try {
+				let content;
+				if (elToCopy.value) {
+					content = elToCopy.value;
+				} else {
+					content = elToCopy.innerText;
+				}
+				await navigator.clipboard.writeText(content);
+				event.target.innerHTML = "Copied";
+			} catch (err) {
+				event.target.innerHTML = "Error copying";
+			}
+			setTimeout(
+				(theButton) => {
+					event.target.innerHTML = "Copy";
+				},
+				2000,
+				event.target,
+			);
+		});
+		buttonParentEl.appendChild(copyButton);
+	}
+
 	connectedCallback() {
 		this.wrapper = this.wrapper().content.cloneNode(true);
 		this.shadowRoot.appendChild(this.wrapper);
@@ -70,6 +105,7 @@ class LineReplacer extends HTMLElement {
 		this.out = this.shadowRoot.querySelector(".out");
 		this.loadExample();
 		this.makeOutput(this.in);
+		this.addCopyButtonTo(".out", ".copy-button");
 		this.in.addEventListener("input", (event) => {
 			this.makeOutput.call(this, event.target);
 		});
