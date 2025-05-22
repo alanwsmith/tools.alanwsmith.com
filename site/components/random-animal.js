@@ -236,6 +236,7 @@ const template = `
 <div class="wrapper">
   <div class="animal-name"></div>
   <button>Get another one</button>
+<div class="copy-button"></div>
 </div>
 `;
 
@@ -243,6 +244,39 @@ class RandomColor extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: "open" });
+	}
+
+	addCopyButtonTo(codeSelector, buttonParentSelector) {
+		const codeEl = this.shadowRoot.querySelector(codeSelector);
+		const buttonParentEl = this.shadowRoot.querySelector(buttonParentSelector);
+		const copyButton = document.createElement("button");
+		copyButton.innerHTML = "Copy";
+		copyButton.dataset.target = codeSelector;
+		copyButton.addEventListener("click", async (event) => {
+			const elToCopy = this.shadowRoot.querySelector(
+				event.target.dataset.target,
+			);
+			try {
+				let content;
+				if (elToCopy.value) {
+					content = elToCopy.value;
+				} else {
+					content = elToCopy.innerText;
+				}
+				await navigator.clipboard.writeText(content);
+				event.target.innerHTML = "Copied";
+			} catch (err) {
+				event.target.innerHTML = "Error copying";
+			}
+			setTimeout(
+				(theButton) => {
+					event.target.innerHTML = "Copy";
+				},
+				2000,
+				event.target,
+			);
+		});
+		buttonParentEl.appendChild(copyButton);
 	}
 
 	addListeners() {
@@ -257,6 +291,7 @@ class RandomColor extends HTMLElement {
 		this.shadowRoot.appendChild(this.wrapper);
 		this.shadowRoot.appendChild(style);
 		this.addListeners();
+		this.addCopyButtonTo(".animal-name", ".copy-button");
 		this.loadColor();
 	}
 
