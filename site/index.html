@@ -317,7 +317,7 @@ main {
             method="GET"
             class="landing-search-form"
           >
-            <label for="etymonline-input">Docs.rs</label>
+            <label for="todo-docs-input">docs.rs</label>
             <div>
               <input
                 class="search-input"
@@ -328,6 +328,92 @@ main {
               />
             </div>
           </form>
+        </div>
+
+        <div>
+          <label for="cargo-desktop-search">crates.io</label>
+          <div>
+            <form
+              class="_form_17hnvp _size-big_17hnvp"
+              action="https://crates.io/search"
+              role="search"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+            >
+              <input
+                class="_input-lg_17hnvp"
+                inputmode="search"
+                name="q"
+                id="cargo-desktop-search"
+                autofocus=""
+                required=""
+                aria-label="Search"
+                type="text"
+              />
+
+              <!--
+ <input class="_input-sm_17hnvp" inputmode="search" name="q" placeholder="Search" required="" aria-label="Search" type="text">
+
+  <button class="button-reset _submit-button_17hnvp" type="submit">
+    <span class="sr-only">Submit</span>
+    <svg height="512" width="512" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="_submit-icon_17hnvp"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+  </button>
+-->
+            </form>
+          </div>
+        </div>
+
+        <div>
+          <label for="hp-search-input">MDN</label>
+          <div>
+            <form
+              action="https://developer.mozilla.org/en-US/search"
+              class="search-form search-widget"
+              id="hp-search-form"
+              role="search"
+            >
+              <input
+                aria-activedescendant=""
+                aria-autocomplete="list"
+                aria-controls="hp-search-menu"
+                aria-expanded="false"
+                aria-labelledby="hp-search-label"
+                autocomplete="off"
+                id="hp-search-input"
+                role="combobox"
+                type="search"
+                class="search-input-field"
+                name="q"
+                required=""
+                value=""
+              />
+            </form>
+          </div>
+        </div>
+
+        <div>
+          <label for="youtube-search">YouTube</label>
+          <div>
+            <form
+              action="https://www.youtube.com/results"
+              class="ytSearchboxComponentSearchForm"
+            >
+              <input
+                id="youtube-search"
+                name="search_query"
+                aria-controls="i0"
+                aria-expanded="true"
+                type="text"
+                autocomplete="off"
+                autocorrect="off"
+                aria-autocomplete="list"
+                role="combobox"
+                class="ytSearchboxComponentInput yt-searchbox-input title"
+              />
+            </form>
+          </div>
         </div>
 
         <div>
@@ -421,10 +507,35 @@ main {
           </form>
         </div>
 
-
-
-
-
+        <div>
+          <label for="nasa-image-search">NASA Images</label>
+          <div>
+            <form
+              _ngcontent-wfv-c197=""
+              novalidate=""
+              id="search_form"
+              aria-label="Sitewide"
+              autocomplete="off"
+              role="search"
+              class="form-group search-form landing ng-pristine ng-invalid hasErrors ng-touched"
+              action="https://images.nasa.gov/search?q=test&page=1&media=image,video,audio&yearStart=1920&yearEnd=2025"
+            >
+              <input
+                _ngcontent-wfv-c197=""
+                id="search-input"
+                formcontrolname="query"
+                type="text"
+                required=""
+                class="form-control search-input inputFocus ng-pristine ng-invalid ng-touched"
+              />
+              <input type="hidden" name="page" value="1" />
+              <input type="hidden" name="media" value="image" />
+              <input type="hidden" name="yearStart" value="1920" />
+              <!-- TODO: update yearEnd to it updates automatically -->
+              <input type="hidden" name="yearEnd" value="2025" />
+            </form>
+          </div>
+        </div>
 
         <div>
           <form
@@ -449,8 +560,6 @@ main {
               class="N3ti0 fyTdc"
             >
 -->
-
-
 
             <div>
               <input
@@ -497,6 +606,31 @@ main {
             </button>
 -->
           </form>
+        </div>
+
+        <div>
+          <label for="unicode-search">Unicode</label>
+          <div>
+            <form
+              role="search"
+              class="searchform fusion-search-form fusion-live-search"
+              method="get"
+              action="https://www.google.com/search"
+            >
+              <input
+                id="unicode-search"
+                type="text"
+                value=""
+                name="q"
+                class="s"
+                required=""
+                aria-required="true"
+                aria-label="Search ..."
+              />
+              <input type="hidden" name="as_sitesearch" value="unicode.org" />
+              <input type="hidden" name="udm" value="14" />
+            </form>
+          </div>
         </div>
 
         <div>
