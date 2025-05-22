@@ -325,6 +325,7 @@ main {
         <p>It's an ongoing work-in-progress</p>
       </hgroup>
 
+
       <div class="default-flex">
         <div>
           <label for="searchbox_input">duck duck go</label>
@@ -685,7 +686,13 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <random-animal></random-animal>
       <script type="module" src="components/random-animal.js"></script>
 
+      <random-sentence></random-sentence>
+      <script type="module" src="components/random-sentence.js"></script>
+
       <hr />
+
+      <lines-to-markdown-list></lines-to-markdown-list>
+      <script type="module" src="components/lines-to-markdown-list.js"></script>
 
       <multiline-replacer></multiline-replacer>
       <script type="module" src="components/multiline-replacer.js"></script>
@@ -727,6 +734,9 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           addInputListenerToId(alphabetize, 'sort-list-input')
         </script>
       </details>
+
+
+
 
       <details>
         <summary>To Base64</summary>
@@ -834,6 +844,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <a href="https://wpt.fyi/interop-2025"
             >Web Platform Tests: Interop 2025</a
           >
+          <a href="https://webcomponents.guide/">Web Componets Guide</a>
         </div>
       </details>
 
@@ -866,12 +877,11 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         }
         const _in = getEls()['factors-input']
         const _out = getEls()['factors-output']
-        _in.addEventListener('input', () => {
-          const factors = getFactors(_in.asInt())
-          console.log(factors)
-        })
+        // _in.addEventListener('input', () => {
+        //   const factors = getFactors(_in.asInt())
+        //   console.log(factors)
+        // })
       </script>
-
 
       <details class="flow">
         <summary>Calculate Ratio</summary>
