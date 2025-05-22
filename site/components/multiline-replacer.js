@@ -56,7 +56,7 @@ const template = `
 </details>
 `;
 
-class LineReplacer extends HTMLElement {
+class MultilineReplacer extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: "open" });
@@ -72,7 +72,6 @@ class LineReplacer extends HTMLElement {
 			const elToCopy = this.shadowRoot.querySelector(
 				event.target.dataset.target,
 			);
-			console.log(elToCopy);
 			try {
 				let content;
 				if (elToCopy.value) {
@@ -134,7 +133,6 @@ class LineReplacer extends HTMLElement {
 				}
 				return instance;
 			});
-		console.log(output);
 		this.out.innerHTML = output.join("\n");
 	}
 
@@ -145,4 +143,4 @@ class LineReplacer extends HTMLElement {
 	}
 }
 
-customElements.define("line-replacer", LineReplacer);
+customElements.define("multiline-replacer", MultilineReplacer);
