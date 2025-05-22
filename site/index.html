@@ -312,25 +312,6 @@ main {
 
       <div class="flex">
         <div>
-          <form
-            action="https://docs.rs/releases/search"
-            method="GET"
-            class="landing-search-form"
-          >
-            <label for="todo-docs-input">docs.rs</label>
-            <div>
-              <input
-                class="search-input"
-                id="search"
-                name="query"
-                type="search"
-                aria-label="Docs.rs find crate by search query"
-              />
-            </div>
-          </form>
-        </div>
-
-        <div>
           <label for="cargo-desktop-search">crates.io</label>
           <div>
             <form
@@ -366,7 +347,38 @@ main {
         </div>
 
         <div>
-          <label for="hp-search-input">MDN</label>
+          <form
+            action="https://docs.rs/releases/search"
+            method="GET"
+            class="landing-search-form"
+          >
+            <label for="todo-docs-input">docs.rs</label>
+            <div>
+              <input
+                class="search-input"
+                id="search"
+                name="query"
+                type="search"
+                aria-label="Docs.rs find crate by search query"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form method="get" action="https://www.etymonline.com/search">
+            <label for="etymonline-input">etymology</label>
+            <div>
+              <input type="search" value="" name="q" id="etymonline-input" />
+              <!--
+            <input type="submit" title="Search" value="Submit" />
+-->
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <label for="hp-search-input">mdn</label>
           <div>
             <form
               action="https://developer.mozilla.org/en-US/search"
@@ -394,121 +406,7 @@ main {
         </div>
 
         <div>
-          <label for="youtube-search">YouTube</label>
-          <div>
-            <form
-              action="https://www.youtube.com/results"
-              class="ytSearchboxComponentSearchForm"
-            >
-              <input
-                id="youtube-search"
-                name="search_query"
-                aria-controls="i0"
-                aria-expanded="true"
-                type="text"
-                autocomplete="off"
-                autocorrect="off"
-                aria-autocomplete="list"
-                role="combobox"
-                class="ytSearchboxComponentInput yt-searchbox-input title"
-              />
-            </form>
-          </div>
-        </div>
-
-        <div>
-          <form method="get" action="https://www.etymonline.com/search">
-            <label for="etymonline-input">Etymology</label>
-            <div>
-              <input type="search" value="" name="q" id="etymonline-input" />
-              <!--
-            <input type="submit" title="Search" value="Submit" />
--->
-            </div>
-          </form>
-        </div>
-
-        <div>
-          <form
-            class="pure-form"
-            id="search-form"
-            action="https://www.wikipedia.org/search-redirect.php"
-            data-el-section="search"
-          >
-            <label for="searchInput">Wikipedia</label>
-            <div>
-              <input id="searchInput" name="search" type="search" />
-              <input type="hidden" name="family" value="Wikipedia" />
-              <input
-                type="hidden"
-                id="hiddenLanguageInput"
-                name="language"
-                value="en"
-              />
-              <input type="hidden" value="Go" name="go" />
-              <input
-                type="hidden"
-                id="searchLanguage"
-                name="language"
-                value="en"
-              />
-              <!--
-            <input type="submit" title="Search" value="Submit" />
--->
-            </div>
-          </form>
-        </div>
-
-        <div>
-          <form
-            name="bodySearch0.079140209907"
-            id="bodySearch0.079140209907"
-            class="bodySearch mw-inputbox-form-inline"
-            action="https://en.wiktionary.org//wiki/Special:Search"
-          >
-            <label for="todo">Wiktionary</label>
-            <div>
-              <input
-                type="search"
-                name="search"
-                class="mw-searchInput cdx-text-input__input"
-                id="bodySearchInput0.079140209907"
-                dir="ltr"
-                placeholder=""
-              />
-            </div>
-          </form>
-        </div>
-
-        <div>
-          <form
-            accept-charset="UTF-8"
-            action="https://www.wordnik.com/words"
-            autocapitalize="none"
-            autocomplete="none"
-            class="homepage-form"
-            method="get"
-            novalidate="novalidate"
-          >
-            <label for="todo-wordnik">Wordnik</label>
-            <div>
-              <input
-                id="main_search_box"
-                class="input-text"
-                name="myWord"
-                autocapitalize="none"
-                autocomplete="none"
-                type="search"
-              />
-            </div>
-            <!--
-		<input name="commit" type="submit" class="input-submit" value="I always feel lucky">
--->
-          </form>
-        </div>
-
-        <div>
-          <label for="nasa-image-search">NASA Images</label>
+          <label for="nasa-image-search">nasa images</label>
           <div>
             <form
               _ngcontent-wfv-c197=""
@@ -538,78 +436,7 @@ main {
         </div>
 
         <div>
-          <form
-            class="PmmAr QKAcJ f3GNJ"
-            data-testid="homepage-search-form-form"
-            role="search"
-            aria-label="Find visuals sitewide"
-            action="https://unsplash.com/s"
-            method="get"
-          >
-            <label for="unsplash-search">Unsplash</label>
-            <!--
-            <button data-testid="homepage-header-search-form-button" title="Search Unsplash" class="ns_es aZVYw" type="submit">
-              <svg class="G2kxY PABRJ DM3Ox" width="24" height="24" viewBox="0 0 24 24" version="1.1" aria-hidden="false" style="flex-shrink:0"><desc lang="en-US">A magnifying glass</desc><path d="M16.5 15c.9-1.2 1.5-2.8 1.5-4.5C18 6.4 14.6 3 10.5 3S3 6.4 3 10.5 6.4 18 10.5 18c1.7 0 3.2-.5 4.5-1.5l4.6 4.5 1.4-1.5-4.5-4.5zm-6 1c-3 0-5.5-2.5-5.5-5.5S7.5 5 10.5 5 16 7.5 16 10.5 13.5 16 10.5 16z"></path></svg>
-            </button>
-
-            <div
-              role="combobox"
-              aria-haspopup="listbox"
-              aria-owns="react-autowhatever-1"
-              aria-expanded="false"
-              class="N3ti0 fyTdc"
-            >
--->
-
-            <div>
-              <input
-                id="unsplash-search"
-                type="search"
-                autocomplete="off"
-                aria-autocomplete="list"
-                aria-controls="react-autowhatever-1"
-                title="Search Unsplash"
-                class="IhFc7 kt4Uc"
-                data-testid="homepage-header-search-form-input"
-                autocapitalize="none"
-                spellcheck="false"
-                required=""
-                name="searchKeyword"
-                value=""
-              />
-            </div>
-            <!--
-              <div id="react-autowhatever-1" role="listbox" class="K4rvD"></div>
-            </div>
-            <button
-              tabindex="0"
-              aria-expanded="false"
-              aria-haspopup="dialog"
-              aria-label="Visual search"
-              class="ns_es aZVYw"
-              type="button"
-            >
-              <svg
-                class="Y2Svj PABRJ DM3Ox"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                version="1.1"
-                aria-hidden="false"
-                style="flex-shrink: 0"
-              >
-                <desc lang="en-US">Visual search</desc>
-                <path
-                  d="M5 15H3v4c0 1.1.9 2 2 2h4v-2H5v-4ZM5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5Zm14-2h-4v2h4v4h2V5c0-1.1-.9-2-2-2Zm0 16h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4ZM12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"
-                ></path>
-              </svg>
-            </button>
--->
-          </form>
-        </div>
-
-        <div>
-          <label for="unicode-search">Unicode</label>
+          <label for="unicode-search">unicode</label>
           <div>
             <form
               role="search"
@@ -632,6 +459,140 @@ main {
             </form>
           </div>
         </div>
+
+        <div>
+          <label for="unsplash-search">unsplash</label>
+          <form
+            class="PmmAr QKAcJ f3GNJ"
+            data-testid="homepage-search-form-form"
+            role="search"
+            aria-label="Find visuals sitewide"
+            action="https://unsplash.com/s"
+            method="get"
+          >
+            <div>
+              <input
+                id="unsplash-search"
+                type="search"
+                autocomplete="off"
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-1"
+                title="Search Unsplash"
+                class="IhFc7 kt4Uc"
+                data-testid="homepage-header-search-form-input"
+                autocapitalize="none"
+                spellcheck="false"
+                required=""
+                name="searchKeyword"
+                value=""
+              />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form
+            class="pure-form"
+            id="search-form"
+            action="https://www.wikipedia.org/search-redirect.php"
+            data-el-section="search"
+          >
+            <label for="searchInput">wikipedia</label>
+            <div>
+              <input id="searchInput" name="search" type="search" />
+              <input type="hidden" name="family" value="Wikipedia" />
+              <input
+                type="hidden"
+                id="hiddenLanguageInput"
+                name="language"
+                value="en"
+              />
+              <input type="hidden" value="Go" name="go" />
+              <input
+                type="hidden"
+                id="searchLanguage"
+                name="language"
+                value="en"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form
+            name="bodySearch0.079140209907"
+            id="bodySearch0.079140209907"
+            class="bodySearch mw-inputbox-form-inline"
+            action="https://en.wiktionary.org//wiki/Special:Search"
+          >
+            <label for="todo">wiktionary</label>
+            <div>
+              <input
+                type="search"
+                name="search"
+                class="mw-searchInput cdx-text-input__input"
+                id="bodySearchInput0.079140209907"
+                dir="ltr"
+                placeholder=""
+              />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form
+            accept-charset="UTF-8"
+            action="https://www.wordnik.com/words"
+            autocapitalize="none"
+            autocomplete="none"
+            class="homepage-form"
+            method="get"
+            novalidate="novalidate"
+          >
+            <label for="todo-wordnik">wordnik</label>
+            <div>
+              <input
+                id="main_search_box"
+                class="input-text"
+                name="myWord"
+                autocapitalize="none"
+                autocomplete="none"
+                type="search"
+              />
+            </div>
+            <!--
+		<input name="commit" type="submit" class="input-submit" value="I always feel lucky">
+-->
+          </form>
+        </div>
+
+
+
+        <div>
+          <label for="youtube-search">youtube</label>
+          <div>
+            <form
+              action="https://www.youtube.com/results"
+              class="ytSearchboxComponentSearchForm"
+            >
+              <input
+                id="youtube-search"
+                name="search_query"
+                aria-controls="i0"
+                aria-expanded="true"
+                type="text"
+                autocomplete="off"
+                autocorrect="off"
+                aria-autocomplete="list"
+                role="combobox"
+                class="ytSearchboxComponentInput yt-searchbox-input title"
+              />
+            </form>
+          </div>
+        </div>
+
+
+
 
         <div>
           <form
