@@ -159,7 +159,7 @@ style.innerHTML = `
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 .color-chip {
@@ -177,6 +177,7 @@ const template = `
   <div class="color-name"></div>
   <div class="color-chip"></div>
   <button>Get another one</button>
+  <div class="copy-button-wrapper"></div>
 </div>
 `;
 
@@ -184,6 +185,39 @@ class RandomColor extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: "open" });
+	}
+
+	addCopyButtonTo(codeSelector, buttonParentSelector) {
+		const codeEl = this.shadowRoot.querySelector(codeSelector);
+		const buttonParentEl = this.shadowRoot.querySelector(buttonParentSelector);
+		const copyButton = document.createElement("button");
+		copyButton.innerHTML = "Copy";
+		copyButton.dataset.target = codeSelector;
+		copyButton.addEventListener("click", async (event) => {
+			const elToCopy = this.shadowRoot.querySelector(
+				event.target.dataset.target,
+			);
+			try {
+				let content;
+				if (elToCopy.value) {
+					content = elToCopy.value;
+				} else {
+					content = elToCopy.innerText;
+				}
+				await navigator.clipboard.writeText(content);
+				event.target.innerHTML = "Copied";
+			} catch (err) {
+				event.target.innerHTML = "Error copying";
+			}
+			setTimeout(
+				(theButton) => {
+					event.target.innerHTML = "Copy";
+				},
+				2000,
+				event.target,
+			);
+		});
+		buttonParentEl.appendChild(copyButton);
 	}
 
 	addListeners() {
@@ -199,6 +233,7 @@ class RandomColor extends HTMLElement {
 		this.shadowRoot.appendChild(style);
 		this.colorVarSheet = document.createElement("style");
 		this.shadowRoot.appendChild(this.colorVarSheet);
+		this.addCopyButtonTo(".color-name", ".copy-button-wrapper");
 		this.addListeners();
 		this.loadColor();
 	}
