@@ -326,6 +326,9 @@ main {
       </hgroup>
 
 
+
+
+
       <div class="default-flex">
         <div>
           <label for="searchbox_input">duck duck go</label>
@@ -703,45 +706,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
 </div>
 
-      <details>
-        <summary>Sort Lines Alphabetically</summary>
-        <div>
-          <label for="sort-list-input">Text Input</label>
-        </div>
-        <div>
-          <textarea id="sort-list-input" cols="30" rows="8"></textarea>
-        </div>
-        <div>
-          <label for="sort-list-output">Alphabetizes Output</label>
-        </div>
-        <div>
-          <textarea id="sort-list-output" cols="30" rows="8"></textarea>
-        </div>
-        <script type="module">
-          function alphabetize() {
-            const input = getText('sort-list-input')
-            let lines = input.split('\n')
-            log(lines)
-            lines.sort((a, b) => {
-              const aCheck = a.toLowerCase()
-              const bCheck = b.toLowerCase()
-              if (aCheck < bCheck) {
-                return -1
-              }
-              if (aCheck > bCheck) {
-                return 1
-              }
-              return 0
-            })
-            log(lines)
-            const output = lines.join('\n')
-            setIdToValue('sort-list-output', output)
-          }
-          addInputListenerToId(alphabetize, 'sort-list-input')
-        </script>
-      </details>
-
-
 
 
       <details>
@@ -809,7 +773,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <hr />
 
       <details class="flow">
-        <summary>color pickers</summary>
+        <summary>Color Pickers</summary>
         <div class="default-flex">
           <a href="https://colors.alanwsmith.com/">My Color Picker (v4)</a>
           <a href="https://color-picker.alanwsmith.com/"
@@ -835,7 +799,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       </details>
 
       <details class="flow">
-        <summary>misc</summary>
+        <summary>Misc</summary>
         <div class="default-flex">
           <a href="https://lists.alanwsmith.com/">My Lists</a>
           <a href="https://links.alanwsmith.com/">My Links</a>

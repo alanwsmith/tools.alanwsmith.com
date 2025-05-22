@@ -6,7 +6,7 @@ echo
 bravo
 alfa
 
-charlie`
+charlie`,
 ];
 
 const style = document.createElement("style");
@@ -22,6 +22,7 @@ style.innerHTML = `
 	margin-top: 1rem;
 	padding-inline: 1.2rem;
 }
+
 textarea {
   width: 16rem;
   height: 10rem;
@@ -38,6 +39,22 @@ const template = `
       <div>
         <p>Input</p>
         <textarea class="in"></textarea>
+        <div>
+            <input id="smushed" type="radio" name="lines" value="smushed" checked/>
+            <label for="smushed">Smushed</label>
+        </div>
+        <div>
+            <input id="spaced" type="radio" name="lines" value="spaced" />
+            <label for="spaced">Spaced</label>
+        </div>
+        <div>
+            <input id="list" type="radio" name="lines" value="list" />
+            <label for="list">List</label>
+        </div>
+        <div>
+            <input id="numbered" type="radio" name="lines" value="numbered" />
+            <label for="numbered">Numbered</label>
+        </div>
       </div>
       <div>
         <p>Output</p>
@@ -99,6 +116,9 @@ class SortLinesAlphabetically extends HTMLElement {
 		this.in.addEventListener("input", (event) => {
 			this.makeOutput.call(this, event.target);
 		});
+		this.shadowRoot.addEventListener("change", (event) => {
+			this.makeOutput.call(this);
+		});
 	}
 
 	loadExample() {
@@ -109,25 +129,45 @@ class SortLinesAlphabetically extends HTMLElement {
 		let inputs = this.in.value.split("\n");
 		const output = inputs
 			.filter((input) => {
-                if (input.trim().length > 0) {
+				if (input.trim().length > 0) {
 					return true;
 				} else {
 					return false;
 				}
 			})
 			.sort((a, b) => {
-              const aCheck = a.toLowerCase()
-              const bCheck = b.toLowerCase()
-              if (aCheck < bCheck) {
-                return -1
-              }
-              if (aCheck > bCheck) {
-                return 1
-              }
-              return 0
+				const aCheck = a.toLowerCase();
+				const bCheck = b.toLowerCase();
+				if (aCheck < bCheck) {
+					return -1;
+				}
+				if (aCheck > bCheck) {
+					return 1;
+				}
+				return 0;
 			});
-        let out = `${output.join("\n\n")}\n\n`;
-		this.out.innerHTML = out;
+		let checked = this.shadowRoot.querySelector(
+			'input[name="lines"]:checked',
+		).value;
+		if (checked === "smushed") {
+			let out = `${output.join("\n")}\n\n`;
+			this.out.innerHTML = out;
+		} else if (checked === "spaced") {
+			let out = `${output.join("\n\n")}\n\n`;
+			this.out.innerHTML = out;
+		} else if (checked === "list") {
+			let out = `- ${output.join("\n\n- ")}\n\n`;
+			this.out.innerHTML = out;
+		} else if (checked === "numbered") {
+			let out = `${output
+				.map((line, index) => {
+					return `${index + 1}. ${line}`;
+				})
+				.join("\n\n")}\n\n`;
+			this.out.innerHTML = out;
+		} else {
+			this.out.innerHTML = `something went weird.\ntime to debug`;
+		}
 	}
 
 	wrapper() {
