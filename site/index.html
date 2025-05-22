@@ -2,28 +2,55 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
     <link rel="manifest" href="/favicons/site.webmanifest" />
-    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="/favicons/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
     <meta name="theme-color" content="#000000" />
 
     <title>Alan's Tools</title>
-    <meta name="description" content="My collection of online tools for various things" />
-    <meta property="og:description" content="My collection of online tools for various things" />
+    <meta
+      name="description"
+      content="My collection of online tools for various things"
+    />
+    <meta
+      property="og:description"
+      content="My collection of online tools for various things"
+    />
     <meta property="og:title" content="Alan's Tools" />
     <meta property="og:url" content="https://tools.alanwsmith.com/" />
-    <meta property="og:image" content="https://tools.alanwsmith.com/images/og-image.jpg" />
+    <meta
+      property="og:image"
+      content="https://tools.alanwsmith.com/images/og-image.jpg"
+    />
 
     <script>
       // Add a listener to an element by id
       function addInputListenerToId(func, id) {
-        const el = document.querySelector(`#${id}`);
-        el.addEventListener('input', func);
+        const el = document.querySelector(`#${id}`)
+        el.addEventListener('input', func)
       }
 
       // Get an element by ID
@@ -34,238 +61,241 @@
       // Get all elements that have an ID
       function getEls() {
         const els = document.querySelectorAll('input[id]')
-        const results = {};
+        const results = {}
         els.forEach((el) => {
-          el.asInt = function() { return parseInt(el.value, 10); }
-          results[el.id] = el;
-        });
+          el.asInt = function () {
+            return parseInt(el.value, 10)
+          }
+          results[el.id] = el
+        })
         return results
       }
 
       // Get the value of an input field as an integer
       // using the element's ID
       function getInt(id) {
-        const el = document.querySelector(`#${id}`);
-        return parseInt(el.value, 10);
+        const el = document.querySelector(`#${id}`)
+        return parseInt(el.value, 10)
       }
 
       // Get the value of an input field as text
       // using the element's ID
       function getText(id) {
-        const el = document.querySelector(`#${id}`);
-        return el.value;
+        const el = document.querySelector(`#${id}`)
+        return el.value
       }
 
       // Log output
       function log(message) {
-        console.log(message);
+        console.log(message)
       }
 
       // Set the value of an element by its ID
       function setIdToValue(id, val) {
-        const el = document.querySelector(`#${id}`);
-        el.value = val;
+        const el = document.querySelector(`#${id}`)
+        el.value = val
       }
     </script>
 
     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-*, 
-*::before, 
-*::after {
-  box-sizing: border-box;
-}
+      * {
+        margin: 0;
+      }
 
-* {
-  margin: 0;
-}
+      ::marker {
+        color: var(--accent-color-1);
+      }
 
-::marker {
-  color: var(--accent-color-1);
-}
+      html {
+        color-scheme: light dark;
+      }
 
-html {
-  color-scheme: light dark;
-}
+      body {
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        display: grid;
+        /*font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;*/
+        font-family: system-ui;
+        font-weight: normal;
+        font-size: var(--medium-font-size);
+        grid-template-rows: auto 1fr auto;
+        line-height: 1.5;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
 
-body {
-  background-color: var(--background-color);
-  color: var(--primary-color);
-  display: grid;
-  /*font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;*/
-  font-family: system-ui;
-  font-weight: normal;
-  font-size: var(--medium-font-size);
-  grid-template-rows: auto 1fr auto;
-  line-height: 1.5; 
-  min-height: 100vh;
-  min-height: 100dvh;
-}
+      a {
+        color: var(--accent-color-1);
+        text-decoration: none;
+      }
 
-a {
-  color: var(--accent-color-1);
-  text-decoration: none;
-}
+      a:hover,
+      a:focus {
+        color: var(--accent-color-2);
+      }
 
-a:hover, a:focus {
-  color: var(--accent-color-2);
-}
+      .blue {
+        color: blue;
+      }
 
-.blue {
-  color: blue;
-}
+      button {
+        background: none;
+        border: 1px solid var(--accent-color-1);
+        border-radius: var(--medium-border-radius);
+        color: var(--accent-color-1);
+        cursor: pointer;
+        font-size: var(--small-font-size);
+        outline: none;
+      }
 
-button {
-  background: none;
-  border: 1px solid var(--accent-color-1);
-  border-radius: var(--medium-border-radius);
-  color: var(--accent-color-1);
-  cursor: pointer;
-  font-size: var(--small-font-size);
-  outline: none;
-}
+      .flow > :where(:not(:first-child)) {
+        margin-top: var(--flow-space, 2.5rem);
+      }
 
-.flow > :where(:not(:first-child)) {
-  margin-top: var(--flow-space, 2.5rem);
-}
+      footer {
+        margin-top: var(--xlarge-margin);
+        margin-bottom: var(--large-margin);
+        font-size: var(--small-font-size);
+        text-align: center;
+      }
 
-footer {
-  margin-top: var(--xlarge-margin);
-  margin-bottom: var(--large-margin);
-  font-size: var(--small-font-size);
-  text-align: center;
-}
+      .green {
+        color: green;
+      }
 
-.green {
-  color: green;
-}
+      h1,
+      h2,
+      h3,
+      h4 {
+        line-height: 1.1;
+        color: var(--secondary-color);
+        text-wrap: balance;
+        font-weight: 900;
+      }
 
-h1, h2, h3, h4 {
-  line-height: 1.1;
-  color: var(--secondary-color);
-  text-wrap: balance;
-  font-weight: 900;
-}
+      h1 {
+        font-size: var(--xxxlarge-font-size);
+      }
 
-h1 {
-  font-size: var(--xxxlarge-font-size);
-}
+      h2 {
+        font-size: var(--xxlarge-font-size);
+      }
 
-h2 {
-  font-size: var(--xxlarge-font-size);
-}
+      h3 {
+        font-size: var(--xlarge-font-size);
+      }
 
-h3 {
-  font-size: var(--xlarge-font-size);
-}
+      h3 {
+        font-size: var(--large-font-size);
+      }
 
-h3 {
-  font-size: var(--large-font-size);
-}
+      h4 {
+        font-size: var(--medium-font-size);
+      }
 
-h4 {
-  font-size: var(--medium-font-size);
-}
+      header {
+        margin-block: var(--medium-margin);
+        margin-inline: auto;
+        width: var(--large-width);
+      }
 
-header {
-  margin-block: var(--medium-margin);
-  margin-inline: auto;
-  width: var(--large-width);
-}
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+      main {
+        margin-inline: auto;
+        padding-bottom: var(--xlarge-padding);
+        width: var(--large-width);
+      }
 
-main {
-  margin-inline: auto;
-  padding-bottom: var(--xlarge-padding);
-  width: var(--large-width);
-}
-
-/* uncomment to center horizontally
+      /* uncomment to center horizontally
 main {
   justify-items: center;
 }
 */
 
-.red {
-  color: red;
-}
+      .red {
+        color: red;
+      }
 
-section {
-  --flow-space: 1.3em;
-}
+      section {
+        --flow-space: 1.3em;
+      }
 
-.superscript-numbers div {
-  padding-inline: 1rem;
-}
+      .superscript-numbers div {
+        padding-inline: 1rem;
+      }
 
-ul > :where(:not(:first-child)) {
-  margin-top: 1em;
-}
+      ul > :where(:not(:first-child)) {
+        margin-top: 1em;
+      }
 
-
-:root {
-  --background-color: #121;
-  --primary-color: #aaa;
-  --secondary-color: blue;
-  --accent-color-1: green;
-  --accent-color-2: purple;
-  --accent-color-3: goldenrod;
-  --reverse-color: #eee;
-  --xxsmall-margin: 0.1rem;
-  --xsmall-margin: 0.3rem;
-  --small-margin: 0.4rem;
-  --medium-margin: 0.6rem;
-  --large-margin: 1.2rem;
-  --xlarge-margin: 2.1em;
-  --xxlarge-margin: 3.2em;
-  --xxxlarge-margin: 3.2em;
-  --xxsmall-padding: 0.1rem;
-  --xsmall-padding: 0.3rem;
-  --small-padding: 0.4rem;
-  --medium-padding: 0.6rem;
-  --large-padding: 1.2rem;
-  --xlarge-padding: 2.1em;
-  --xxlarge-padding: 3.2em;
-  --xxxlarge-padding: 3.2em;
-  --xxsmall-border-radius: 0.1rem;
-  --xsmall-border-radius: 0.2rem;
-  --small-border-radius: 0.3rem;
-  --medium-border-radius: 0.4rem;
-  --large-border-radius: 0.5rem;
-  --xlarge-border-radius: 0.6rem;
-  --xxlarge-border-radius: 0.7rem;
-  --xxxlarge-border-radius: 0.9rem;
-  --xxsmall-font-size: clamp(0.68rem, calc(0.67rem + 0.03vw), 0.70rem);
-  --xsmall-font-size: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
-  --small-font-size: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
-  --medium-font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --large-font-size: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
-  --xlarge-font-size: clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem);
-  --xxlarge-font-size: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
-  --xxxlarge-font-size: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
-  --xxsmall-width: min(8rem, 96%);
-  --xsmall-width: min(12rem, 96%);
-  --small-width: min(24rem, 96%);
-  --medium-width: min(34rem, 96%);
-  --large-width: min(46rem, 96%);
-  --xlarge-width: min(58rem, 96%);
-  --xxlarge-width: min(72rem, 96%);
-  --xxxlarge-width: min(86rem, 96%);
-}
+      :root {
+        --background-color: #121;
+        --primary-color: #aaa;
+        --secondary-color: blue;
+        --accent-color-1: green;
+        --accent-color-2: purple;
+        --accent-color-3: goldenrod;
+        --reverse-color: #eee;
+        --xxsmall-margin: 0.1rem;
+        --xsmall-margin: 0.3rem;
+        --small-margin: 0.4rem;
+        --medium-margin: 0.6rem;
+        --large-margin: 1.2rem;
+        --xlarge-margin: 2.1em;
+        --xxlarge-margin: 3.2em;
+        --xxxlarge-margin: 3.2em;
+        --xxsmall-padding: 0.1rem;
+        --xsmall-padding: 0.3rem;
+        --small-padding: 0.4rem;
+        --medium-padding: 0.6rem;
+        --large-padding: 1.2rem;
+        --xlarge-padding: 2.1em;
+        --xxlarge-padding: 3.2em;
+        --xxxlarge-padding: 3.2em;
+        --xxsmall-border-radius: 0.1rem;
+        --xsmall-border-radius: 0.2rem;
+        --small-border-radius: 0.3rem;
+        --medium-border-radius: 0.4rem;
+        --large-border-radius: 0.5rem;
+        --xlarge-border-radius: 0.6rem;
+        --xxlarge-border-radius: 0.7rem;
+        --xxxlarge-border-radius: 0.9rem;
+        --xxsmall-font-size: clamp(0.68rem, calc(0.67rem + 0.03vw), 0.7rem);
+        --xsmall-font-size: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
+        --small-font-size: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+        --medium-font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+        --large-font-size: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+        --xlarge-font-size: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+        --xxlarge-font-size: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+        --xxxlarge-font-size: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+        --xxsmall-width: min(8rem, 96%);
+        --xsmall-width: min(12rem, 96%);
+        --small-width: min(24rem, 96%);
+        --medium-width: min(34rem, 96%);
+        --large-width: min(46rem, 96%);
+        --xlarge-width: min(58rem, 96%);
+        --xxlarge-width: min(72rem, 96%);
+        --xxxlarge-width: min(86rem, 96%);
+      }
 
       .flex {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
       }
-
     </style>
   </head>
- 
+
   <body>
     <header>
       <a href="https://www.alanwsmith.com">alanwsmith.com</a> ~
@@ -273,45 +303,53 @@ ul > :where(:not(:first-child)) {
       <a href="https://socials.alanwsmith.com/">socials</a>
     </header>
 
-    <main class="flow"> 
+    <main class="flow">
       <hgroup>
         <h1>Alan's Tools</h1>
         <p>My collection of online tools for doing various things</p>
         <p>Still very much a work-in-progress</p>
       </hgroup>
 
-      <hr />
+      <div class="flex">
+        <div>
+          <form
+            action="https://docs.rs/releases/search"
+            method="GET"
+            class="landing-search-form"
+          >
+            <label for="etymonline-input">Docs.rs</label>
+            <div>
+              <input
+                class="search-input"
+                id="search"
+                name="query"
+                type="search"
+                aria-label="Docs.rs find crate by search query"
+              />
+            </div>
+          </form>
+        </div>
 
-      <random-color></random-color>
-      <script type="module" src="components/random-color.js"></script>
-
-      <hr />
-
-      <random-animal></random-animal>
-      <script type="module" src="components/random-animal.js"></script>
-
-      <hr />
-
-      <multiline-replacer></multiline-replacer>
-      <script type="module" src="components/multiline-replacer.js"></script>
-
-      <hr />
-
-      <h2>Forms</h2>
-      <div>
-        <form method="get" action="https://www.etymonline.com/search">
-          <label for="etymonline-input">Etymology Dictionary</label>
-          <div>
-            <input type="text" value="" name="q" id="etymonline-input" />
+        <div>
+          <form method="get" action="https://www.etymonline.com/search">
+            <label for="etymonline-input">Etymology</label>
+            <div>
+              <input type="search" value="" name="q" id="etymonline-input" />
+              <!--
             <input type="submit" title="Search" value="Submit" />
-          </div>
-        </form>
-      </div>
-      <div>
-        <form id="search-form" action="https://www.merriam-webster.com/thesaurus">
-          <label for="search-term">Thesaurus</label>
-          <div>TODO: needs custom js to do `/thesaurus/SEARCHTERM`</div>
-          <!--
+-->
+            </div>
+          </form>
+        </div>
+        <div>
+          <form
+            id="search-form"
+            action="https://www.merriam-webster.com/thesaurus"
+          >
+            <label for="search-term">Thesaurus</label>
+            <div>Currently broken</div>
+            <!--
+TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <div>
             <input id="search-term" type="search" aria-label="Search" value="">       
             <button id="search-close-btn" class="btn position-absolute close-button" title="close" aria-label="Close Search" type="reset">
@@ -330,29 +368,116 @@ ul > :where(:not(:first-child)) {
             </button>
           </div>
 -->
-        </form>
-      </div>
-      <div>
-        <form class="pure-form" id="search-form" action="https://www.wikipedia.org/search-redirect.php" data-el-section="search">
-          <label for="searchInput">Wikipedia</label>
-          <div>
-            <input id="searchInput" name="search" type="search">
-            <input type="hidden" name="family" value="Wikipedia">
-            <input type="hidden" id="hiddenLanguageInput" name="language" value="en">
-            <input type="hidden" value="Go" name="go">
-            <input type="hidden" id="searchLanguage" name="language" value="en">
+          </form>
+        </div>
+        <div>
+          <form
+            class="pure-form"
+            id="search-form"
+            action="https://www.wikipedia.org/search-redirect.php"
+            data-el-section="search"
+          >
+            <label for="searchInput">Wikipedia</label>
+            <div>
+              <input id="searchInput" name="search" type="search" />
+              <input type="hidden" name="family" value="Wikipedia" />
+              <input
+                type="hidden"
+                id="hiddenLanguageInput"
+                name="language"
+                value="en"
+              />
+              <input type="hidden" value="Go" name="go" />
+              <input
+                type="hidden"
+                id="searchLanguage"
+                name="language"
+                value="en"
+              />
+              <!--
             <input type="submit" title="Search" value="Submit" />
-          </div>
-        </form>
+-->
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form
+            name="bodySearch0.079140209907"
+            id="bodySearch0.079140209907"
+            class="bodySearch mw-inputbox-form-inline"
+            action="https://en.wiktionary.org//wiki/Special:Search"
+          >
+            <label for="todo">Wiktionary</label>
+            <div>
+              <input
+                type="search"
+                name="search"
+                class="mw-searchInput cdx-text-input__input"
+                id="bodySearchInput0.079140209907"
+                dir="ltr"
+                placeholder=""
+              />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <form
+            accept-charset="UTF-8"
+            action="https://www.wordnik.com/words"
+            autocapitalize="none"
+            autocomplete="none"
+            class="homepage-form"
+            method="get"
+            novalidate="novalidate"
+          >
+            <label for="todo-wordnik">Wordnik</label>
+            <div>
+              <input
+                id="main_search_box"
+                class="input-text"
+                name="myWord"
+                autocapitalize="none"
+                autocomplete="none"
+                type="search"
+              />
+            </div>
+            <!--
+		<input name="commit" type="submit" class="input-submit" value="I always feel lucky">
+-->
+          </form>
+        </div>
       </div>
+
+      <hr />
+
+      <random-color></random-color>
+      <script type="module" src="components/random-color.js"></script>
+
+      <hr />
+
+      <random-animal></random-animal>
+      <script type="module" src="components/random-animal.js"></script>
+
+      <hr />
+
+      <multiline-replacer></multiline-replacer>
+      <script type="module" src="components/multiline-replacer.js"></script>
+
+      <hr />
 
       <hr />
 
       <h2>Misc Tools</h2>
       <ul>
-        <li><a href="https://svg-button-maker.alanwsmith.com/">SVG Button Maker</a></li>
+        <li>
+          <a href="https://svg-button-maker.alanwsmith.com/"
+            >SVG Button Maker</a
+          >
+        </li>
       </ul>
-      
+
       <hr />
 
       <h2>Links</h2>
@@ -360,8 +485,16 @@ ul > :where(:not(:first-child)) {
         <li><a href="https://www.remove.bg/">remove.bg</a></li>
         <li><a href="https://svgomg.net/">SVG OMG</a></li>
         <li><a href="https://www.svgrepo.com/">SVG Repo</a></li>
-        <li><a href="https://base64.guru/converter/encode/image/png">PNG To Base64</a></li>
-        <li><a href="https://wpt.fyi/interop-2025">Web Platform Tests - Interop 2025</a></li>
+        <li>
+          <a href="https://base64.guru/converter/encode/image/png"
+            >PNG To Base64</a
+          >
+        </li>
+        <li>
+          <a href="https://wpt.fyi/interop-2025"
+            >Web Platform Tests - Interop 2025</a
+          >
+        </li>
       </ul>
 
       <h2>Color Pickers</h2>
@@ -378,14 +511,13 @@ ul > :where(:not(:first-child)) {
       <hr />
 
       <h2>Footnote Characters</h2>
-<style>
-      </style>
+      <style></style>
       <p>
-        This was looking at using copy/paste characters instead
-        of <code>&lt;sup&gt;</code> tags, but they look
-        jacked up for me. Need to investigate further to see what's up.
-        TODO: probably use character codes instead.
-      </p> 
+        This was looking at using copy/paste characters instead of
+        <code>&lt;sup&gt;</code> tags, but they look jacked up for me. Need to
+        investigate further to see what's up. TODO: probably use character codes
+        instead.
+      </p>
       <div class="flex">
         <div>⁰</div>
         <div>¹</div>
@@ -405,47 +537,48 @@ ul > :where(:not(:first-child)) {
         <div>™</div>
         <div>©</div>
       </div>
-      <div>Dot that's not a period for using when you don't want a url to auto link:</div>
+      <div>
+        Dot that's not a period for using when you don't want a url to auto
+        link:
+      </div>
       <div>.</div>
       <p>
-        Just remember that if folks try to copy base the url it won't work. 
-        Which is kind the point. 
-        (I use it for things like www.example.com, etc...)
+        Just remember that if folks try to copy base the url it won't work.
+        Which is kind the point. (I use it for things like www.example.com,
+        etc...)
       </p>
 
       <hr />
-
 
       <h2>Calculators</h2>
 
       <h3>Factors Of A Number</h3>
       <div>
         <label for="factors-input">Number To Factor</label>
-        <input type="number" id="factors-input">
+        <input type="number" id="factors-input" />
       </div>
       <div>
         <label for="factors-output">Factors</label>
-        <input type="text" id="factors-output">
+        <input type="text" id="factors-output" />
       </div>
 
       <script type="module">
-
-      function getFactors(number) {
-        console.log(number);
-        const factors = [];
-        for (let checkNum = 1; checkNum <= number; checkNum +=1) {
-          if ((number % checkNum) === 0) {
-            factors.push(checkNum);
+        function getFactors(number) {
+          console.log(number)
+          const factors = []
+          for (let checkNum = 1; checkNum <= number; checkNum += 1) {
+            if (number % checkNum === 0) {
+              factors.push(checkNum)
+            }
           }
+          return factors
         }
-        return factors;
-      }
-      const _in = getEls()['factors-input'];
-      const _out = getEls()['factors-output'];
-      _in.addEventListener('input', () => {
-        const factors = getFactors(_in.asInt());
-        console.log(factors);
-      });
+        const _in = getEls()['factors-input']
+        const _out = getEls()['factors-output']
+        _in.addEventListener('input', () => {
+          const factors = getFactors(_in.asInt())
+          console.log(factors)
+        })
       </script>
 
       <hr />
@@ -462,46 +595,42 @@ ul > :where(:not(:first-child)) {
 
       <div>
         <label for="ratio-output">Ratio</label>
-        <input type="text" id="ratio-output">
+        <input type="text" id="ratio-output" />
       </div>
 
       <script type="module">
         function getFactors(number) {
-          const factors = [];
-          for (let checkNum = 1; checkNum <= number; checkNum +=1) {
-            if ((number % checkNum) === 0) {
-              factors.push(checkNum);
+          const factors = []
+          for (let checkNum = 1; checkNum <= number; checkNum += 1) {
+            if (number % checkNum === 0) {
+              factors.push(checkNum)
             }
           }
-          return factors;
+          return factors
         }
         function getGreatestCommonFactor(a, b) {
-          let gcf = 1;
-          a.sort();
+          let gcf = 1
+          a.sort()
           a.forEach((checkNum) => {
             if (b.includes(checkNum)) {
-              gcf = checkNum;
+              gcf = checkNum
             }
-          });
-          return gcf;
+          })
+          return gcf
         }
         function findRatio() {
-          const widthIn = getInt('ratio-input-width');
-          const heightIn = getInt('ratio-input-height');
-          const widthFactors = getFactors(widthIn);
-          const heightFactors = getFactors(heightIn);
-          let gcf = getGreatestCommonFactor(
-            widthFactors, 
-            heightFactors
-          );
-          const ratioW = widthIn / gcf;
-          const ratioH = heightIn / gcf;
-          setIdToValue('ratio-output', `${ratioW}:${ratioH}`);
+          const widthIn = getInt('ratio-input-width')
+          const heightIn = getInt('ratio-input-height')
+          const widthFactors = getFactors(widthIn)
+          const heightFactors = getFactors(heightIn)
+          let gcf = getGreatestCommonFactor(widthFactors, heightFactors)
+          const ratioW = widthIn / gcf
+          const ratioH = heightIn / gcf
+          setIdToValue('ratio-output', `${ratioW}:${ratioH}`)
         }
-        addInputListenerToId(findRatio, 'ratio-input-width');
-        addInputListenerToId(findRatio, 'ratio-input-height');
+        addInputListenerToId(findRatio, 'ratio-input-width')
+        addInputListenerToId(findRatio, 'ratio-input-height')
       </script>
-
 
       <hr />
 
@@ -509,102 +638,107 @@ ul > :where(:not(:first-child)) {
 
       <div>
         <label for="whfar-area">Area</label>
-        <input type="number" id="whfar-area">
+        <input type="number" id="whfar-area" />
       </div>
 
       <div>
         <label for="whfar-ratio-width">Ratio Width</label>
-        <input type="number" id="whfar-ratio-width">
+        <input type="number" id="whfar-ratio-width" />
       </div>
 
       <div>
         <label for="whfar-ratio-height">Ratio Height</label>
-        <input type="number" id="whfar-ratio-height">
+        <input type="number" id="whfar-ratio-height" />
       </div>
 
       <div>
         <label for="whfar-width">Width</label>
-        <input type="text" id="whfar-width">
+        <input type="text" id="whfar-width" />
       </div>
 
       <div>
         <label for="whfar-height">Height</label>
-        <input type="text" id="whfar-height">
+        <input type="text" id="whfar-height" />
       </div>
 
       <div>
         <label for="whfar-width-floored">Width (floored)</label>
-        <input type="text" id="whfar-width-floored">
+        <input type="text" id="whfar-width-floored" />
       </div>
 
       <div>
         <label for="whfar-height-floored">Height (floored)</label>
-        <input type="text" id="whfar-height-floored">
+        <input type="text" id="whfar-height-floored" />
       </div>
 
       <div>
         <label for="whfar-floored-area">Floored Area</label>
-        <input type="text" id="whfar-floored-area">
+        <input type="text" id="whfar-floored-area" />
       </div>
 
-
       <script type="module">
-        const areaEl = document.querySelector('#whfar-area');
-        const ratioWidthEl = document.querySelector('#whfar-ratio-width');
-        const ratioHeightEl = document.querySelector('#whfar-ratio-height');
-        const widthEl = document.querySelector('#whfar-width');
-        const heightEl = document.querySelector('#whfar-height');
-        const widthFlooredEl = document.querySelector('#whfar-width-floored');
-        const heightFlooredEl = document.querySelector('#whfar-height-floored');
-        const flooredAreaEl = document.querySelector('#whfar-floored-area');
-        areaEl.addEventListener('input', updateWidthAndHeight);
-        ratioWidthEl.addEventListener('input', updateWidthAndHeight);
-        ratioHeightEl.addEventListener('input', updateWidthAndHeight);
+        const areaEl = document.querySelector('#whfar-area')
+        const ratioWidthEl = document.querySelector('#whfar-ratio-width')
+        const ratioHeightEl = document.querySelector('#whfar-ratio-height')
+        const widthEl = document.querySelector('#whfar-width')
+        const heightEl = document.querySelector('#whfar-height')
+        const widthFlooredEl = document.querySelector('#whfar-width-floored')
+        const heightFlooredEl = document.querySelector('#whfar-height-floored')
+        const flooredAreaEl = document.querySelector('#whfar-floored-area')
+        areaEl.addEventListener('input', updateWidthAndHeight)
+        ratioWidthEl.addEventListener('input', updateWidthAndHeight)
+        ratioHeightEl.addEventListener('input', updateWidthAndHeight)
 
         function updateWidthAndHeight() {
-          if (areaEl.value !== '' && ratioWidthEl.value !== '' && ratioHeightEl.value !== '') {
-            const area = parseInt(areaEl.value, 10);
-            const ratioWidth = parseInt(ratioWidthEl.value, 10);
-            const ratioHeight = parseInt(ratioHeightEl.value, 10);
+          if (
+            areaEl.value !== '' &&
+            ratioWidthEl.value !== '' &&
+            ratioHeightEl.value !== ''
+          ) {
+            const area = parseInt(areaEl.value, 10)
+            const ratioWidth = parseInt(ratioWidthEl.value, 10)
+            const ratioHeight = parseInt(ratioHeightEl.value, 10)
             const base = widthAndHeightFromAreaAndRatio(
-              area, ratioWidth, ratioHeight
-            );
-            widthEl.value = base.width;
-            heightEl.value = base.height;
+              area,
+              ratioWidth,
+              ratioHeight
+            )
+            widthEl.value = base.width
+            heightEl.value = base.height
             const floored = widthAndHeightFromAreaAndRatioFloored(
-              area, ratioWidth, ratioHeight
-            );
-            widthFlooredEl.value = floored.width;
-            heightFlooredEl.value = floored.height;
-            flooredAreaEl.value = floored.coverage;
+              area,
+              ratioWidth,
+              ratioHeight
+            )
+            widthFlooredEl.value = floored.width
+            heightFlooredEl.value = floored.height
+            flooredAreaEl.value = floored.coverage
           }
         }
 
         function widthAndHeightFromAreaAndRatio(area, ratioWidth, ratioHeight) {
-          const ratio = ratioHeight / ratioWidth;
-          const width = Math.sqrt(area / ratio);
-          const height = Math.sqrt(area * ratio);
-          return { "width": width, "height": height };
+          const ratio = ratioHeight / ratioWidth
+          const width = Math.sqrt(area / ratio)
+          const height = Math.sqrt(area * ratio)
+          return { width: width, height: height }
         }
 
-        function widthAndHeightFromAreaAndRatioFloored(area, ratioWidth, ratioHeight) {
-          const ratio = ratioHeight / ratioWidth;
-          const width = Math.floor(Math.sqrt(area / ratio));
-          const height = Math.floor(Math.sqrt(area * ratio));
-          const coverage = width * height;
-          return { 
-            "width": width, 
-            "height": height,
-            "coverage": coverage
-          };
+        function widthAndHeightFromAreaAndRatioFloored(
+          area,
+          ratioWidth,
+          ratioHeight
+        ) {
+          const ratio = ratioHeight / ratioWidth
+          const width = Math.floor(Math.sqrt(area / ratio))
+          const height = Math.floor(Math.sqrt(area * ratio))
+          const coverage = width * height
+          return {
+            width: width,
+            height: height,
+            coverage: coverage,
+          }
         }
-
       </script>
-
-
-
-
-
 
       <h2>Text Formatters</h2>
 
@@ -622,69 +756,59 @@ ul > :where(:not(:first-child)) {
         <textarea id="sort-list-output" cols="30" rows="8"></textarea>
       </div>
       <script type="module">
-      function alphabetize() {
-        const input = getText('sort-list-input');
-        let lines = input.split("\n");
-        log(lines);
-        lines.sort((a, b) => {
-          const aCheck = a.toLowerCase();
-          const bCheck = b.toLowerCase();
-          if (aCheck < bCheck) {
-            return -1;
-          }
-          if (aCheck > bCheck) {
-            return 1;
-          }
-          return 0;
-        });
-        log(lines);
-        const output = lines.join("\n");
-        setIdToValue('sort-list-output', output);
-      }
-      addInputListenerToId(alphabetize, 'sort-list-input')
+        function alphabetize() {
+          const input = getText('sort-list-input')
+          let lines = input.split('\n')
+          log(lines)
+          lines.sort((a, b) => {
+            const aCheck = a.toLowerCase()
+            const bCheck = b.toLowerCase()
+            if (aCheck < bCheck) {
+              return -1
+            }
+            if (aCheck > bCheck) {
+              return 1
+            }
+            return 0
+          })
+          log(lines)
+          const output = lines.join('\n')
+          setIdToValue('sort-list-output', output)
+        }
+        addInputListenerToId(alphabetize, 'sort-list-input')
       </script>
-
-
-
 
       <h3>To Base64</h3>
       <div>
-      <label for="base64-input">Text Input</label>
+        <label for="base64-input">Text Input</label>
       </div>
       <div>
-      <textarea id="base64-input" cols="30" rows="8"></textarea>
+        <textarea id="base64-input" cols="30" rows="8"></textarea>
       </div>
       <div>
-      <label for="base64-output">Base64 Output</label>
+        <label for="base64-output">Base64 Output</label>
       </div>
       <div>
-      <textarea id="base64-output" cols="30" rows="8"></textarea>
+        <textarea id="base64-output" cols="30" rows="8"></textarea>
       </div>
       <script type="module">
-      const base64Input = document.querySelector('#base64-input')
-      const base64Output = document.querySelector('#base64-output')
-      base64Input.addEventListener('input', (event) => {
-        base64Output.value = btoa(base64Input.value) 
-      })
+        const base64Input = document.querySelector('#base64-input')
+        const base64Output = document.querySelector('#base64-output')
+        base64Input.addEventListener('input', (event) => {
+          base64Output.value = btoa(base64Input.value)
+        })
       </script>
-
-
-
-
-
     </main>
 
     <footer>
+      <div>made by <a href="https://www.alanwsmith.com">alan w smith</a></div>
       <div>
-        made by <a href="https://www.alanwsmith.com">alan w smith</a>
-      </div>
-      <div>
-        <a href="https://github.com/alanwsmith/tools.alanwsmith.com">source code</a> ~
-        <a href="https://links.alanwsmith.com">other projects</a> ~
+        <a href="https://github.com/alanwsmith/tools.alanwsmith.com"
+          >source code</a
+        >
+        ~ <a href="https://links.alanwsmith.com">other projects</a> ~
         <a href="https://socials.alanwsmith.com">socials</a>
       </div>
     </footer>
-
-
   </body>
 </html>
