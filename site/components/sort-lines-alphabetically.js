@@ -34,7 +34,7 @@ textarea {
 
 const template = `
 <details>
-  <summary>Sort Lines Alphabetically</summary>
+  <summary>Sort Alphabetically</summary>
   <div class="wrapper">
       <div>
         <p>Input</p>
