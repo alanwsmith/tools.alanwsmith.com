@@ -7,7 +7,7 @@ Tuck the sheet under the edge of the mat.
 
 Wake and rise, and step into the green outdoors.
 
-`
+`,
 ];
 
 const style = document.createElement("style");
@@ -41,11 +41,19 @@ const template = `
       <div>
         <p>Input</p>
         <textarea class="in"></textarea>
+        <div>
+            <input id="list" type="radio" name="lines" value="list" checked />
+            <label for="list">List</label>
+        </div>
+        <div>
+            <input id="numbered" type="radio" name="lines" value="numbered" />
+            <label for="numbered">Numbered</label>
+        </div>
       </div>
       <div>
         <p>Output</p>
         <textarea class="out"></textarea>
-	    <div class="copy-button"></div>
+	<div class="copy-button"></div>
       </div>
     </div>
 </details>
@@ -102,6 +110,9 @@ class LinesToMarkdownList extends HTMLElement {
 		this.in.addEventListener("input", (event) => {
 			this.makeOutput.call(this, event.target);
 		});
+		this.shadowRoot.addEventListener("change", (event) => {
+			this.makeOutput.call(this, event);
+		});
 	}
 
 	loadExample() {
@@ -110,18 +121,26 @@ class LinesToMarkdownList extends HTMLElement {
 
 	makeOutput(el) {
 		let inputs = this.in.value.split("\n");
+
 		const output = inputs
 			.filter((input) => {
-                if (input.trim().length > 0) {
+				if (input.trim().length > 0) {
 					return true;
 				} else {
 					return false;
 				}
 			})
-			.map((input) => {
-				return `- ${input}`;
+			.map((input, index) => {
+				if (
+					this.shadowRoot.querySelector(`input[name="lines"]:checked`).value ===
+					"numbered"
+				) {
+					return `${index + 1}. ${input}`;
+				} else {
+					return `- ${input}`;
+				}
 			});
-        let out = `${output.join("\n\n")}\n\n`;
+		let out = `${output.join("\n\n")}\n\n`;
 		this.out.innerHTML = out;
 	}
 
