@@ -689,7 +689,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
-      <details class="flow" open>
+      <details class="flow">
         <summary>links</summary>
         <div class="default-flex">
           <a href="https://svg-button-maker.alanwsmith.com/"
@@ -709,7 +709,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
-      <details class="flow" open>
+      <details class="flow">
         <summary>Color Pickers</summary>
         <div class="default-flex">
           <a href="https://accessiblepalette.com/">Accessible Palette</a>
@@ -724,47 +724,46 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
-      <h2>Footnote Characters</h2>
-      <style></style>
-      <p>
-        This was looking at using copy/paste characters instead of
-        <code>&lt;sup&gt;</code> tags, but they look jacked up for me. Need to
-        investigate further to see what's up. TODO: probably use character codes
-        instead.
-      </p>
-      <div class="default-flex">
-        <div>⁰</div>
-        <div>¹</div>
-        <div>²</div>
-        <div>³</div>
-        <div>⁴</div>
-        <div>⁵</div>
-        <div>⁶</div>
-        <div>⁷</div>
-        <div>⁸</div>
-        <div>⁹</div>
-        <div>†</div>
-        <div>‡</div>
-        <div>⸸</div>
-      </div>
-      <div class="default-flex">
-        <div>™</div>
-        <div>©</div>
-      </div>
-      <div>
-        Dot that's not a period for using when you don't want a url to auto
-        link:
-      </div>
-      <div>.</div>
-      <p>
-        Just remember that if folks try to copy base the url it won't work.
-        Which is kind the point. (I use it for things like www.example.com,
-        etc...)
-      </p>
+      <details class="default-flex">
+        <summary>Footnote Characters</summary>
+        <p>
+          This was looking at using copy/paste characters instead of
+          <code>&lt;sup&gt;</code> tags, but they look jacked up for me. Need to
+          investigate further to see what's up. TODO: probably use character
+          codes instead.
+        </p>
+        <div class="default-flex">
+          <div>⁰</div>
+          <div>¹</div>
+          <div>²</div>
+          <div>³</div>
+          <div>⁴</div>
+          <div>⁵</div>
+          <div>⁶</div>
+          <div>⁷</div>
+          <div>⁸</div>
+          <div>⁹</div>
+          <div>†</div>
+          <div>‡</div>
+          <div>⸸</div>
+        </div>
+        <div class="default-flex">
+          <div>™</div>
+          <div>©</div>
+        </div>
+        <div>
+          Dot that's not a period for using when you don't want a url to auto
+          link:
+        </div>
+        <div>.</div>
+        <p>
+          Just remember that if folks try to copy base the url it won't work.
+          Which is kind the point. (I use it for things like www.example.com,
+          etc...)
+        </p>
+      </details>
 
-      <hr />
-
-      <h2>Calculators</h2>
+      <!--
 
       <h3>Factors Of A Number</h3>
       <div>
@@ -795,166 +794,177 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         })
       </script>
 
+-->
+
       <hr />
 
-      <h3>Ratio</h3>
-      <div>
-        <label for="ratio-input-width">Width</label>
-        <input type="number" id="ratio-input-width" />
-      </div>
-      <div>
-        <label for="ratio-input-height">Height</label>
-        <input type="number" id="ratio-input-height" />
-      </div>
+      <details class="flow">
+        <summary>Calculate Ratio</summary>
+        <div>
+          <label for="ratio-input-width">Width</label>
+          <input type="number" id="ratio-input-width" />
+        </div>
+        <div>
+          <label for="ratio-input-height">Height</label>
+          <input type="number" id="ratio-input-height" />
+        </div>
 
-      <div>
-        <label for="ratio-output">Ratio</label>
-        <input type="text" id="ratio-output" />
-      </div>
+        <div>
+          <label for="ratio-output">Ratio</label>
+          <input type="text" id="ratio-output" />
+        </div>
 
-      <script type="module">
-        function getFactors(number) {
-          const factors = []
-          for (let checkNum = 1; checkNum <= number; checkNum += 1) {
-            if (number % checkNum === 0) {
-              factors.push(checkNum)
+        <script type="module">
+          function getFactors(number) {
+            const factors = []
+            for (let checkNum = 1; checkNum <= number; checkNum += 1) {
+              if (number % checkNum === 0) {
+                factors.push(checkNum)
+              }
+            }
+            return factors
+          }
+          function getGreatestCommonFactor(a, b) {
+            let gcf = 1
+            a.sort()
+            a.forEach((checkNum) => {
+              if (b.includes(checkNum)) {
+                gcf = checkNum
+              }
+            })
+            return gcf
+          }
+          function findRatio() {
+            const widthIn = getInt('ratio-input-width')
+            const heightIn = getInt('ratio-input-height')
+            const widthFactors = getFactors(widthIn)
+            const heightFactors = getFactors(heightIn)
+            let gcf = getGreatestCommonFactor(widthFactors, heightFactors)
+            const ratioW = widthIn / gcf
+            const ratioH = heightIn / gcf
+            setIdToValue('ratio-output', `${ratioW}:${ratioH}`)
+          }
+          addInputListenerToId(findRatio, 'ratio-input-width')
+          addInputListenerToId(findRatio, 'ratio-input-height')
+        </script>
+      </details>
+
+      <hr />
+
+      <details class="flow">
+        <summary>Width And Height From Area And Ratio (Floored)</summary>
+
+        <div>
+          <label for="whfar-area">Area</label>
+          <input type="number" id="whfar-area" />
+        </div>
+
+        <div>
+          <label for="whfar-ratio-width">Ratio Width</label>
+          <input type="number" id="whfar-ratio-width" />
+        </div>
+
+        <div>
+          <label for="whfar-ratio-height">Ratio Height</label>
+          <input type="number" id="whfar-ratio-height" />
+        </div>
+
+        <div>
+          <label for="whfar-width">Width</label>
+          <input type="text" id="whfar-width" />
+        </div>
+
+        <div>
+          <label for="whfar-height">Height</label>
+          <input type="text" id="whfar-height" />
+        </div>
+
+        <div>
+          <label for="whfar-width-floored">Width (floored)</label>
+          <input type="text" id="whfar-width-floored" />
+        </div>
+
+        <div>
+          <label for="whfar-height-floored">Height (floored)</label>
+          <input type="text" id="whfar-height-floored" />
+        </div>
+
+        <div>
+          <label for="whfar-floored-area">Floored Area</label>
+          <input type="text" id="whfar-floored-area" />
+        </div>
+
+        <script type="module">
+          const areaEl = document.querySelector('#whfar-area')
+          const ratioWidthEl = document.querySelector('#whfar-ratio-width')
+          const ratioHeightEl = document.querySelector('#whfar-ratio-height')
+          const widthEl = document.querySelector('#whfar-width')
+          const heightEl = document.querySelector('#whfar-height')
+          const widthFlooredEl = document.querySelector('#whfar-width-floored')
+          const heightFlooredEl = document.querySelector(
+            '#whfar-height-floored'
+          )
+          const flooredAreaEl = document.querySelector('#whfar-floored-area')
+          areaEl.addEventListener('input', updateWidthAndHeight)
+          ratioWidthEl.addEventListener('input', updateWidthAndHeight)
+          ratioHeightEl.addEventListener('input', updateWidthAndHeight)
+
+          function updateWidthAndHeight() {
+            if (
+              areaEl.value !== '' &&
+              ratioWidthEl.value !== '' &&
+              ratioHeightEl.value !== ''
+            ) {
+              const area = parseInt(areaEl.value, 10)
+              const ratioWidth = parseInt(ratioWidthEl.value, 10)
+              const ratioHeight = parseInt(ratioHeightEl.value, 10)
+              const base = widthAndHeightFromAreaAndRatio(
+                area,
+                ratioWidth,
+                ratioHeight
+              )
+              widthEl.value = base.width
+              heightEl.value = base.height
+              const floored = widthAndHeightFromAreaAndRatioFloored(
+                area,
+                ratioWidth,
+                ratioHeight
+              )
+              widthFlooredEl.value = floored.width
+              heightFlooredEl.value = floored.height
+              flooredAreaEl.value = floored.coverage
             }
           }
-          return factors
-        }
-        function getGreatestCommonFactor(a, b) {
-          let gcf = 1
-          a.sort()
-          a.forEach((checkNum) => {
-            if (b.includes(checkNum)) {
-              gcf = checkNum
-            }
-          })
-          return gcf
-        }
-        function findRatio() {
-          const widthIn = getInt('ratio-input-width')
-          const heightIn = getInt('ratio-input-height')
-          const widthFactors = getFactors(widthIn)
-          const heightFactors = getFactors(heightIn)
-          let gcf = getGreatestCommonFactor(widthFactors, heightFactors)
-          const ratioW = widthIn / gcf
-          const ratioH = heightIn / gcf
-          setIdToValue('ratio-output', `${ratioW}:${ratioH}`)
-        }
-        addInputListenerToId(findRatio, 'ratio-input-width')
-        addInputListenerToId(findRatio, 'ratio-input-height')
-      </script>
 
-      <hr />
-
-      <h3>Width And Height From Area And Ratio (Floored)</h3>
-
-      <div>
-        <label for="whfar-area">Area</label>
-        <input type="number" id="whfar-area" />
-      </div>
-
-      <div>
-        <label for="whfar-ratio-width">Ratio Width</label>
-        <input type="number" id="whfar-ratio-width" />
-      </div>
-
-      <div>
-        <label for="whfar-ratio-height">Ratio Height</label>
-        <input type="number" id="whfar-ratio-height" />
-      </div>
-
-      <div>
-        <label for="whfar-width">Width</label>
-        <input type="text" id="whfar-width" />
-      </div>
-
-      <div>
-        <label for="whfar-height">Height</label>
-        <input type="text" id="whfar-height" />
-      </div>
-
-      <div>
-        <label for="whfar-width-floored">Width (floored)</label>
-        <input type="text" id="whfar-width-floored" />
-      </div>
-
-      <div>
-        <label for="whfar-height-floored">Height (floored)</label>
-        <input type="text" id="whfar-height-floored" />
-      </div>
-
-      <div>
-        <label for="whfar-floored-area">Floored Area</label>
-        <input type="text" id="whfar-floored-area" />
-      </div>
-
-      <script type="module">
-        const areaEl = document.querySelector('#whfar-area')
-        const ratioWidthEl = document.querySelector('#whfar-ratio-width')
-        const ratioHeightEl = document.querySelector('#whfar-ratio-height')
-        const widthEl = document.querySelector('#whfar-width')
-        const heightEl = document.querySelector('#whfar-height')
-        const widthFlooredEl = document.querySelector('#whfar-width-floored')
-        const heightFlooredEl = document.querySelector('#whfar-height-floored')
-        const flooredAreaEl = document.querySelector('#whfar-floored-area')
-        areaEl.addEventListener('input', updateWidthAndHeight)
-        ratioWidthEl.addEventListener('input', updateWidthAndHeight)
-        ratioHeightEl.addEventListener('input', updateWidthAndHeight)
-
-        function updateWidthAndHeight() {
-          if (
-            areaEl.value !== '' &&
-            ratioWidthEl.value !== '' &&
-            ratioHeightEl.value !== ''
+          function widthAndHeightFromAreaAndRatio(
+            area,
+            ratioWidth,
+            ratioHeight
           ) {
-            const area = parseInt(areaEl.value, 10)
-            const ratioWidth = parseInt(ratioWidthEl.value, 10)
-            const ratioHeight = parseInt(ratioHeightEl.value, 10)
-            const base = widthAndHeightFromAreaAndRatio(
-              area,
-              ratioWidth,
-              ratioHeight
-            )
-            widthEl.value = base.width
-            heightEl.value = base.height
-            const floored = widthAndHeightFromAreaAndRatioFloored(
-              area,
-              ratioWidth,
-              ratioHeight
-            )
-            widthFlooredEl.value = floored.width
-            heightFlooredEl.value = floored.height
-            flooredAreaEl.value = floored.coverage
+            const ratio = ratioHeight / ratioWidth
+            const width = Math.sqrt(area / ratio)
+            const height = Math.sqrt(area * ratio)
+            return { width: width, height: height }
           }
-        }
 
-        function widthAndHeightFromAreaAndRatio(area, ratioWidth, ratioHeight) {
-          const ratio = ratioHeight / ratioWidth
-          const width = Math.sqrt(area / ratio)
-          const height = Math.sqrt(area * ratio)
-          return { width: width, height: height }
-        }
-
-        function widthAndHeightFromAreaAndRatioFloored(
-          area,
-          ratioWidth,
-          ratioHeight
-        ) {
-          const ratio = ratioHeight / ratioWidth
-          const width = Math.floor(Math.sqrt(area / ratio))
-          const height = Math.floor(Math.sqrt(area * ratio))
-          const coverage = width * height
-          return {
-            width: width,
-            height: height,
-            coverage: coverage,
+          function widthAndHeightFromAreaAndRatioFloored(
+            area,
+            ratioWidth,
+            ratioHeight
+          ) {
+            const ratio = ratioHeight / ratioWidth
+            const width = Math.floor(Math.sqrt(area / ratio))
+            const height = Math.floor(Math.sqrt(area * ratio))
+            const coverage = width * height
+            return {
+              width: width,
+              height: height,
+              coverage: coverage,
+            }
           }
-        }
-      </script>
+        </script>
+      </details>
 
-      <h2>Text Formatters</h2>
 
       <h3>Sort List</h3>
       <div>
