@@ -102,17 +102,17 @@ class MultilineReplacer extends HTMLElement {
 		this.loadExample();
 		this.makeOutput(this.in);
 		this.addCopyButtonTo(".out", ".copy-button");
-		this.in.addEventListener("input", (event) => {
-			this.makeOutput.call(this, event.target);
+		this.shadowRoot.addEventListener("input", () => {
+			this.makeOutput.call(this);
 		});
 	}
 
 	loadExample() {
-		this.in.innerHTML = content[0];
-		this.template.innerHTML = content[1];
+		this.in.value = content[0];
+		this.template.value = content[1];
 	}
 
-	makeOutput(el) {
+	makeOutput() {
 		let inputs = this.in.value.split("\n");
 		const output = inputs
 			.filter((input) => {
@@ -124,7 +124,7 @@ class MultilineReplacer extends HTMLElement {
 			})
 			.map((input) => {
 				const vars = input.split("|");
-				let instance = this.template.innerHTML;
+				let instance = this.template.value;
 				for (let num = 1; num <= vars.length; num++) {
 					instance = instance.replace(`VAR${num}`, vars[num - 1]);
 				}
