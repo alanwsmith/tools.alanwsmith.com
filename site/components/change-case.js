@@ -1,12 +1,8 @@
 const content = [
-  `delta
-foxtrot
+  `alfa bravo charlie
+Delta ECHO
 
-echo
-bravo
-alfa
-
-charlie`,
+foxTROT Golf`,
 ];
 
 const style = document.createElement("style");
@@ -14,7 +10,9 @@ style.innerHTML = `
 :host {
   display: block;
 }
-
+* {
+  margin: 0;
+}
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -22,7 +20,6 @@ style.innerHTML = `
 	margin-top: 1rem;
 	padding-inline: 1.2rem;
 }
-
 textarea {
   width: 16rem;
   height: 10rem;
@@ -34,38 +31,49 @@ textarea {
 
 const template = `
 <details>
-  <summary>Sort Alphabetically</summary>
+  <summary>Change Case</summary>
   <div class="wrapper">
       <div>
         <p>Input</p>
         <textarea class="in"></textarea>
         <div>
-            <input id="smushed" type="radio" name="lines" value="smushed" checked/>
-            <label for="smushed">Smushed</label>
+            <input id="list" type="radio" name="lines" value="lower" checked />
+            <label for="list">lower case</label>
         </div>
         <div>
-            <input id="spaced" type="radio" name="lines" value="spaced" />
-            <label for="spaced">Spaced</label>
+            <input id="numbered" type="radio" name="lines" value="upper" />
+            <label for="numbered">upper case</label>
         </div>
         <div>
-            <input id="list" type="radio" name="lines" value="list" />
-            <label for="list">List</label>
+            <input id="capitals-leave-uppers" type="radio" name="lines" value="capitals-leave-uppers" />
+            <label for="capitals-leave-uppers">capitals (leave uppers)</label>
         </div>
         <div>
-            <input id="numbered" type="radio" name="lines" value="numbered" />
-            <label for="numbered">Numbered</label>
+            <input id="capitals-lower-uppers" type="radio" name="lines" value="capitals-lower-uppers" />
+            <label for="capitals-lower-uppers">capitals (lower uppers)</label>
         </div>
+        <div>
+            <input id="sentence-leave-uppers" type="radio" name="lines" value="sentence-leave-uppers" />
+            <label for="sentence-leave-uppers">sentence (leave uppers)</label>
+        </div>
+        <div>
+            <input id="sentence-lower-uppers" type="radio" name="lines" value="sentence-lower-uppers" />
+            <label for="sentence-lower-uppers">sentence (lower uppers)</label>
+        </div>
+<div>
+TODO: Add <a href="https://daringfireball.net/2008/05/title_case">Title Case</a>
+</div>
       </div>
       <div>
         <p>Output</p>
         <textarea class="out"></textarea>
-	    <div class="copy-button"></div>
+	<div class="copy-button"></div>
       </div>
     </div>
 </details>
 `;
 
-class SortLinesAlphabetically extends HTMLElement {
+class ChangeCase extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -117,7 +125,7 @@ class SortLinesAlphabetically extends HTMLElement {
       this.makeOutput.call(this, event.target);
     });
     this.shadowRoot.addEventListener("change", (event) => {
-      this.makeOutput.call(this);
+      this.makeOutput.call(this, event);
     });
   }
 
@@ -127,49 +135,39 @@ class SortLinesAlphabetically extends HTMLElement {
 
   makeOutput(el) {
     let inputs = this.in.value.split("\n");
+
     const output = inputs
-      .filter((input) => {
-        if (input.trim().length > 0) {
-          return true;
+      .map((input, index) => {
+        const checked =
+          this.shadowRoot.querySelector(`input[name="lines"]:checked`).value;
+        if (
+          checked === "lower"
+        ) {
+          return input.toLowerCase();
+        } else if (checked === "upper") {
+          return input.toUpperCase();
+        } else if (checked === "capitals-leave-uppers") {
+          return input.split(" ").map((word) => {
+            return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+          }).join(" ");
+        } else if (checked === "capitals-lower-uppers") {
+          return input.split(" ").map((word) => {
+            const lowered = word.toLowerCase();
+            return String(lowered).charAt(0).toUpperCase() +
+              String(lowered).slice(1);
+          }).join(" ");
+        } else if (checked === "sentence-leave-uppers") {
+          return String(input).charAt(0).toUpperCase() + String(input).slice(1);
+        } else if (checked === "sentence-lower-uppers") {
+          const lowered = input.toLowerCase();
+          return String(lowered).charAt(0).toUpperCase() +
+            String(lowered).slice(1);
         } else {
-          return false;
+          return `something went weird. time to debug`;
         }
-      })
-      .sort((a, b) => {
-        const aCheck = a.toLowerCase();
-        const bCheck = b.toLowerCase();
-        if (aCheck < bCheck) {
-          return -1;
-        }
-        if (aCheck > bCheck) {
-          return 1;
-        }
-        return 0;
       });
-    let checked = this.shadowRoot.querySelector(
-      'input[name="lines"]:checked',
-    ).value;
-    if (checked === "smushed") {
-      let out = `${output.join("\n")}\n\n`;
-      this.out.innerHTML = out;
-    } else if (checked === "spaced") {
-      let out = `${output.join("\n\n")}\n\n`;
-      this.out.innerHTML = out;
-    } else if (checked === "list") {
-      let out = `- ${output.join("\n\n- ")}\n\n`;
-      this.out.innerHTML = out;
-    } else if (checked === "numbered") {
-      let out = `${
-        output
-          .map((line, index) => {
-            return `${index + 1}. ${line}`;
-          })
-          .join("\n\n")
-      }\n\n`;
-      this.out.innerHTML = out;
-    } else {
-      this.out.innerHTML = `something went weird.\ntime to debug`;
-    }
+    let out = `${output.join("\n")}\n\n`;
+    this.out.innerHTML = out;
   }
 
   wrapper() {
@@ -179,4 +177,4 @@ class SortLinesAlphabetically extends HTMLElement {
   }
 }
 
-customElements.define("sort-lines-alphabetically", SortLinesAlphabetically);
+customElements.define("change-case", ChangeCase);
