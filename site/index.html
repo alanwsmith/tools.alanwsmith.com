@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="apple-touch-icon"
@@ -49,51 +50,51 @@
     <script>
       // Add a listener to an element by id
       function addInputListenerToId(func, id) {
-        const el = document.querySelector(`#${id}`)
-        el.addEventListener('input', func)
+        const el = document.querySelector(`#${id}`);
+        el.addEventListener("input", func);
       }
 
       // Get an element by ID
       function getEls(id) {
-        return document.querySelector(`#{id}`)
+        return document.querySelector(`#{id}`);
       }
 
       // Get all elements that have an ID
       function getEls() {
-        const els = document.querySelectorAll('input[id]')
-        const results = {}
+        const els = document.querySelectorAll("input[id]");
+        const results = {};
         els.forEach((el) => {
           el.asInt = function () {
-            return parseInt(el.value, 10)
-          }
-          results[el.id] = el
-        })
-        return results
+            return parseInt(el.value, 10);
+          };
+          results[el.id] = el;
+        });
+        return results;
       }
 
       // Get the value of an input field as an integer
       // using the element's ID
       function getInt(id) {
-        const el = document.querySelector(`#${id}`)
-        return parseInt(el.value, 10)
+        const el = document.querySelector(`#${id}`);
+        return parseInt(el.value, 10);
       }
 
       // Get the value of an input field as text
       // using the element's ID
       function getText(id) {
-        const el = document.querySelector(`#${id}`)
-        return el.value
+        const el = document.querySelector(`#${id}`);
+        return el.value;
       }
 
       // Log output
       function log(message) {
-        console.log(message)
+        console.log(message);
       }
 
       // Set the value of an element by its ID
       function setIdToValue(id, val) {
-        const el = document.querySelector(`#${id}`)
-        el.value = val
+        const el = document.querySelector(`#${id}`);
+        el.value = val;
       }
     </script>
 
@@ -329,8 +330,6 @@ main {
         <p>It's an ongoing work-in-progress</p>
       </hgroup>
 
-
-
       <div class="default-flex">
         <div>
           <label for="searchbox_input">duck duck go</label>
@@ -366,7 +365,6 @@ main {
             </form>
           </div>
         </div>
-
 
         <div>
           <label for="cargo-desktop-search">crates.io</label>
@@ -763,21 +761,19 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <textarea id="base64-output" cols="30" rows="8"></textarea>
         </div>
         <script type="module">
-          const base64Input = document.querySelector('#base64-input')
-          const base64Output = document.querySelector('#base64-output')
-          base64Input.addEventListener('input', (event) => {
-            base64Output.value = btoa(base64Input.value)
-          })
+          const base64Input = document.querySelector("#base64-input");
+          const base64Output = document.querySelector("#base64-output");
+          base64Input.addEventListener("input", (event) => {
+            base64Output.value = btoa(base64Input.value);
+          });
         </script>
       </details>
 
       <details class="default-flex">
         <summary>Footnote Characters</summary>
         <p>
-          This was looking at using copy/paste characters instead of
-          <code>&lt;sup&gt;</code> tags, but they look jacked up for me. Need to
-          investigate further to see what's up. TODO: probably use character
-          codes instead.
+          Copy/paste characters instead of <code>&lt;sup&gt;</code> tags. TODO:
+          Add copy buttons.
         </p>
         <div class="default-flex">
           <div>⁰</div>
@@ -798,16 +794,20 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <div>™</div>
           <div>©</div>
         </div>
+        <!--
+TODO: Test this on different services to verify 
+it doesn't actually link. 
         <div>
           Dot that's not a period for using when you don't want a url to auto
           link:
         </div>
         <div>.</div>
         <p>
-          Just remember that if folks try to copy base the url it won't work.
-          Which is kind the point. (I use it for things like www.example.com,
-          etc...)
+          Just remember that if folks try to copy base the url it won't work. (I
+          use it for things like www.example.com, etc...) The downside is that
+          if someone copy/pastes the text it wont work either.
         </p>
+-->
       </details>
 
       <hr />
@@ -878,17 +878,17 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <script type="module">
         function getFactors(number) {
-          console.log(number)
-          const factors = []
+          console.log(number);
+          const factors = [];
           for (let checkNum = 1; checkNum <= number; checkNum += 1) {
             if (number % checkNum === 0) {
-              factors.push(checkNum)
+              factors.push(checkNum);
             }
           }
-          return factors
+          return factors;
         }
-        const _in = getEls()['factors-input']
-        const _out = getEls()['factors-output']
+        const _in = getEls()["factors-input"];
+        const _out = getEls()["factors-output"];
         // _in.addEventListener('input', () => {
         //   const factors = getFactors(_in.asInt())
         //   console.log(factors)
@@ -913,36 +913,36 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
         <script type="module">
           function getFactors(number) {
-            const factors = []
+            const factors = [];
             for (let checkNum = 1; checkNum <= number; checkNum += 1) {
               if (number % checkNum === 0) {
-                factors.push(checkNum)
+                factors.push(checkNum);
               }
             }
-            return factors
+            return factors;
           }
           function getGreatestCommonFactor(a, b) {
-            let gcf = 1
-            a.sort()
+            let gcf = 1;
+            a.sort();
             a.forEach((checkNum) => {
               if (b.includes(checkNum)) {
-                gcf = checkNum
+                gcf = checkNum;
               }
-            })
-            return gcf
+            });
+            return gcf;
           }
           function findRatio() {
-            const widthIn = getInt('ratio-input-width')
-            const heightIn = getInt('ratio-input-height')
-            const widthFactors = getFactors(widthIn)
-            const heightFactors = getFactors(heightIn)
-            let gcf = getGreatestCommonFactor(widthFactors, heightFactors)
-            const ratioW = widthIn / gcf
-            const ratioH = heightIn / gcf
-            setIdToValue('ratio-output', `${ratioW}:${ratioH}`)
+            const widthIn = getInt("ratio-input-width");
+            const heightIn = getInt("ratio-input-height");
+            const widthFactors = getFactors(widthIn);
+            const heightFactors = getFactors(heightIn);
+            let gcf = getGreatestCommonFactor(widthFactors, heightFactors);
+            const ratioW = widthIn / gcf;
+            const ratioH = heightIn / gcf;
+            setIdToValue("ratio-output", `${ratioW}:${ratioH}`);
           }
-          addInputListenerToId(findRatio, 'ratio-input-width')
-          addInputListenerToId(findRatio, 'ratio-input-height')
+          addInputListenerToId(findRatio, "ratio-input-width");
+          addInputListenerToId(findRatio, "ratio-input-height");
         </script>
       </details>
 
@@ -990,72 +990,72 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </div>
 
         <script type="module">
-          const areaEl = document.querySelector('#whfar-area')
-          const ratioWidthEl = document.querySelector('#whfar-ratio-width')
-          const ratioHeightEl = document.querySelector('#whfar-ratio-height')
-          const widthEl = document.querySelector('#whfar-width')
-          const heightEl = document.querySelector('#whfar-height')
-          const widthFlooredEl = document.querySelector('#whfar-width-floored')
+          const areaEl = document.querySelector("#whfar-area");
+          const ratioWidthEl = document.querySelector("#whfar-ratio-width");
+          const ratioHeightEl = document.querySelector("#whfar-ratio-height");
+          const widthEl = document.querySelector("#whfar-width");
+          const heightEl = document.querySelector("#whfar-height");
+          const widthFlooredEl = document.querySelector("#whfar-width-floored");
           const heightFlooredEl = document.querySelector(
-            '#whfar-height-floored'
-          )
-          const flooredAreaEl = document.querySelector('#whfar-floored-area')
-          areaEl.addEventListener('input', updateWidthAndHeight)
-          ratioWidthEl.addEventListener('input', updateWidthAndHeight)
-          ratioHeightEl.addEventListener('input', updateWidthAndHeight)
+            "#whfar-height-floored",
+          );
+          const flooredAreaEl = document.querySelector("#whfar-floored-area");
+          areaEl.addEventListener("input", updateWidthAndHeight);
+          ratioWidthEl.addEventListener("input", updateWidthAndHeight);
+          ratioHeightEl.addEventListener("input", updateWidthAndHeight);
 
           function updateWidthAndHeight() {
             if (
-              areaEl.value !== '' &&
-              ratioWidthEl.value !== '' &&
-              ratioHeightEl.value !== ''
+              areaEl.value !== "" &&
+              ratioWidthEl.value !== "" &&
+              ratioHeightEl.value !== ""
             ) {
-              const area = parseInt(areaEl.value, 10)
-              const ratioWidth = parseInt(ratioWidthEl.value, 10)
-              const ratioHeight = parseInt(ratioHeightEl.value, 10)
+              const area = parseInt(areaEl.value, 10);
+              const ratioWidth = parseInt(ratioWidthEl.value, 10);
+              const ratioHeight = parseInt(ratioHeightEl.value, 10);
               const base = widthAndHeightFromAreaAndRatio(
                 area,
                 ratioWidth,
-                ratioHeight
-              )
-              widthEl.value = base.width
-              heightEl.value = base.height
+                ratioHeight,
+              );
+              widthEl.value = base.width;
+              heightEl.value = base.height;
               const floored = widthAndHeightFromAreaAndRatioFloored(
                 area,
                 ratioWidth,
-                ratioHeight
-              )
-              widthFlooredEl.value = floored.width
-              heightFlooredEl.value = floored.height
-              flooredAreaEl.value = floored.coverage
+                ratioHeight,
+              );
+              widthFlooredEl.value = floored.width;
+              heightFlooredEl.value = floored.height;
+              flooredAreaEl.value = floored.coverage;
             }
           }
 
           function widthAndHeightFromAreaAndRatio(
             area,
             ratioWidth,
-            ratioHeight
+            ratioHeight,
           ) {
-            const ratio = ratioHeight / ratioWidth
-            const width = Math.sqrt(area / ratio)
-            const height = Math.sqrt(area * ratio)
-            return { width: width, height: height }
+            const ratio = ratioHeight / ratioWidth;
+            const width = Math.sqrt(area / ratio);
+            const height = Math.sqrt(area * ratio);
+            return { width: width, height: height };
           }
 
           function widthAndHeightFromAreaAndRatioFloored(
             area,
             ratioWidth,
-            ratioHeight
+            ratioHeight,
           ) {
-            const ratio = ratioHeight / ratioWidth
-            const width = Math.floor(Math.sqrt(area / ratio))
-            const height = Math.floor(Math.sqrt(area * ratio))
-            const coverage = width * height
+            const ratio = ratioHeight / ratioWidth;
+            const width = Math.floor(Math.sqrt(area / ratio));
+            const height = Math.floor(Math.sqrt(area * ratio));
+            const coverage = width * height;
             return {
               width: width,
               height: height,
               coverage: coverage,
-            }
+            };
           }
         </script>
       </details>
