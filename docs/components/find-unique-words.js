@@ -27,7 +27,7 @@ textarea {
 `;
 
 const template = `
-<details open>
+<details>
   <summary>Find Unique Words</summary>
   <div class="wrapper">
     <div class="input-wrapper">
