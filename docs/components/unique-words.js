@@ -28,7 +28,7 @@ textarea {
 
 const template = `
 <details>
-  <summary>Find Unique Words</summary>
+  <summary>Unique Words</summary>
   <div class="wrapper">
     <div class="input-wrapper">
       <div>Input</div>
@@ -43,7 +43,7 @@ const template = `
 </details>
 `;
 
-class FindUniqueWords extends HTMLElement {
+class UniqueWords extends HTMLElement {
   constructor() {
     super();
   }
@@ -144,4 +144,4 @@ class FindUniqueWords extends HTMLElement {
   }
 }
 
-customElements.define("find-unique-words", FindUniqueWords);
+customElements.define("unique-words", UniqueWords);
