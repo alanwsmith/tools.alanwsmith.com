@@ -727,14 +727,35 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <hr />
 
       <div class="flow">
-        <unique-words></unique-words>
-        <script type="module" src="components/unique-words.js"></script>
+        <change-case></change-case>
+        <script type="module" src="components/change-case.js"></script>
 
-        <sort-lines-alphabetically></sort-lines-alphabetically>
-        <script
-          type="module"
-          src="components/sort-lines-alphabetically.js"
-        ></script>
+        <details class="default-flex">
+          <summary>Footnote Characters</summary>
+          <p>
+            Copy/paste characters instead of <code>&lt;sup&gt;</code> tags.
+            TODO: Add copy buttons.
+          </p>
+          <div class="default-flex">
+            <div>⁰</div>
+            <div>¹</div>
+            <div>²</div>
+            <div>³</div>
+            <div>⁴</div>
+            <div>⁵</div>
+            <div>⁶</div>
+            <div>⁷</div>
+            <div>⁸</div>
+            <div>⁹</div>
+            <div>†</div>
+            <div>‡</div>
+            <div>⸸</div>
+          </div>
+          <div class="default-flex">
+            <div>™</div>
+            <div>©</div>
+          </div>
+        </details>
 
         <lines-to-markdown-list></lines-to-markdown-list>
         <script
@@ -742,76 +763,41 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           src="components/lines-to-markdown-list.js"
         ></script>
 
-        <change-case></change-case>
-        <script type="module" src="components/change-case.js"></script>
+        <sort-lines-alphabetically></sort-lines-alphabetically>
+        <script
+          type="module"
+          src="components/sort-lines-alphabetically.js"
+        ></script>
 
         <multiline-replacer></multiline-replacer>
         <script type="module" src="components/multiline-replacer.js"></script>
+
+        <details>
+          <summary>To Base64</summary>
+          <div>
+            <label for="base64-input">Text Input</label>
+          </div>
+          <div>
+            <textarea id="base64-input" cols="30" rows="8"></textarea>
+          </div>
+          <div>
+            <label for="base64-output">Base64 Output</label>
+          </div>
+          <div>
+            <textarea id="base64-output" cols="30" rows="8"></textarea>
+          </div>
+          <script type="module">
+            const base64Input = document.querySelector("#base64-input");
+            const base64Output = document.querySelector("#base64-output");
+            base64Input.addEventListener("input", (event) => {
+              base64Output.value = btoa(base64Input.value);
+            });
+          </script>
+        </details>
+
+        <unique-words></unique-words>
+        <script type="module" src="components/unique-words.js"></script>
       </div>
-
-      <details>
-        <summary>To Base64</summary>
-        <div>
-          <label for="base64-input">Text Input</label>
-        </div>
-        <div>
-          <textarea id="base64-input" cols="30" rows="8"></textarea>
-        </div>
-        <div>
-          <label for="base64-output">Base64 Output</label>
-        </div>
-        <div>
-          <textarea id="base64-output" cols="30" rows="8"></textarea>
-        </div>
-        <script type="module">
-          const base64Input = document.querySelector("#base64-input");
-          const base64Output = document.querySelector("#base64-output");
-          base64Input.addEventListener("input", (event) => {
-            base64Output.value = btoa(base64Input.value);
-          });
-        </script>
-      </details>
-
-      <details class="default-flex">
-        <summary>Footnote Characters</summary>
-        <p>
-          Copy/paste characters instead of <code>&lt;sup&gt;</code> tags. TODO:
-          Add copy buttons.
-        </p>
-        <div class="default-flex">
-          <div>⁰</div>
-          <div>¹</div>
-          <div>²</div>
-          <div>³</div>
-          <div>⁴</div>
-          <div>⁵</div>
-          <div>⁶</div>
-          <div>⁷</div>
-          <div>⁸</div>
-          <div>⁹</div>
-          <div>†</div>
-          <div>‡</div>
-          <div>⸸</div>
-        </div>
-        <div class="default-flex">
-          <div>™</div>
-          <div>©</div>
-        </div>
-        <!--
-TODO: Test this on different services to verify 
-it doesn't actually link. 
-        <div>
-          Dot that's not a period for using when you don't want a url to auto
-          link:
-        </div>
-        <div>.</div>
-        <p>
-          Just remember that if folks try to copy base the url it won't work. (I
-          use it for things like www.example.com, etc...) The downside is that
-          if someone copy/pastes the text it wont work either.
-        </p>
--->
-      </details>
 
       <hr />
 
