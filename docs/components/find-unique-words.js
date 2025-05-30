@@ -1,6 +1,6 @@
 const content = [
-  `echo alfa bravo alfa 
-charlie bravo alfa delta echo`,
+  `echo, alfa bravo alfa 
+charlie Bravo alfa delta echo`,
 ];
 
 const style = document.createElement("style");
@@ -118,7 +118,8 @@ class FindUniqueWords extends HTMLElement {
   }
 
   makeOutput() {
-    const lines = this.getValue(".in").split("\n");
+    let input = this.getValue(".in").replace(/\W/g, " ").toLowerCase();
+    const lines = input.split("\n");
     const words = new Set();
     lines.forEach((line) => {
       line.split(" ").forEach((w) => {
