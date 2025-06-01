@@ -1,4 +1,15 @@
 const chars = `
+▲
+▼
+◀
+▶
+▴
+▾
+▸
+◂
+●
+○
+◉
 ⇐
 ⇑
 ⇒
@@ -87,6 +98,11 @@ const style = document.createElement("style");
 style.innerHTML = `
 :host {
   display: block;
+}
+
+button {
+  width: 5ch;
+  height: 4ch;
 }
 
 .wrapper {
