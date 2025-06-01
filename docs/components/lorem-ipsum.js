@@ -166,7 +166,7 @@ textarea {
 `;
 
 const template = `
-<details open>
+<details>
   <summary>Lorem Ipsum</summary>
   <div class="wrapper">
     <div>Output</div>
@@ -328,7 +328,6 @@ class LoremIpsum extends HTMLElement {
   }
 
   makeOutput() {
-    console.log(this.getText());
     this.setValue(".out", this.getText());
   }
 
