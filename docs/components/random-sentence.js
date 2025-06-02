@@ -91,7 +91,7 @@ style.innerHTML = `
 `;
 
 const template = `
-<details>
+<details open>
 	<summary>Random Sentence</summary>
 	<div class="wrapper">
   		<div class="animal-name"></div>
@@ -102,71 +102,71 @@ const template = `
 `;
 
 class RandomSentence extends HTMLElement {
-	constructor() {
-		super();
-		this.attachShadow({ mode: "open" });
-	}
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
 
-	addCopyButtonTo(codeSelector, buttonParentSelector) {
-		const codeEl = this.shadowRoot.querySelector(codeSelector);
-		const buttonParentEl = this.shadowRoot.querySelector(buttonParentSelector);
-		const copyButton = document.createElement("button");
-		copyButton.innerHTML = "Copy";
-		copyButton.dataset.target = codeSelector;
-		copyButton.addEventListener("click", async (event) => {
-			const elToCopy = this.shadowRoot.querySelector(
-				event.target.dataset.target,
-			);
-			try {
-				let content;
-				if (elToCopy.value) {
-					content = elToCopy.value;
-				} else {
-					content = elToCopy.innerText;
-				}
-				await navigator.clipboard.writeText(content);
-				event.target.innerHTML = "Copied";
-			} catch (err) {
-				event.target.innerHTML = "Error copying";
-			}
-			setTimeout(
-				(theButton) => {
-					event.target.innerHTML = "Copy";
-				},
-				2000,
-				event.target,
-			);
-		});
-		buttonParentEl.appendChild(copyButton);
-	}
+  addCopyButtonTo(codeSelector, buttonParentSelector) {
+    const codeEl = this.shadowRoot.querySelector(codeSelector);
+    const buttonParentEl = this.shadowRoot.querySelector(buttonParentSelector);
+    const copyButton = document.createElement("button");
+    copyButton.innerHTML = "Copy";
+    copyButton.dataset.target = codeSelector;
+    copyButton.addEventListener("click", async (event) => {
+      const elToCopy = this.shadowRoot.querySelector(
+        event.target.dataset.target,
+      );
+      try {
+        let content;
+        if (elToCopy.value) {
+          content = elToCopy.value;
+        } else {
+          content = elToCopy.innerText;
+        }
+        await navigator.clipboard.writeText(content);
+        event.target.innerHTML = "Copied";
+      } catch (err) {
+        event.target.innerHTML = "Error copying";
+      }
+      setTimeout(
+        (theButton) => {
+          event.target.innerHTML = "Copy";
+        },
+        2000,
+        event.target,
+      );
+    });
+    buttonParentEl.appendChild(copyButton);
+  }
 
-	addListeners() {
-		this.shadowRoot.querySelector("button").addEventListener("click", () => {
-			this.loadColor();
-		});
-	}
+  addListeners() {
+    this.shadowRoot.querySelector("button").addEventListener("click", () => {
+      this.loadColor();
+    });
+  }
 
-	connectedCallback() {
-		this.colors = content.split("\n");
-		this.wrapper = this.wrapper().content.cloneNode(true);
-		this.shadowRoot.appendChild(this.wrapper);
-		this.shadowRoot.appendChild(style);
-		this.addListeners();
-		this.addCopyButtonTo(".animal-name", ".copy-button");
-		this.loadColor();
-	}
+  connectedCallback() {
+    this.colors = content.split("\n");
+    this.wrapper = this.wrapper().content.cloneNode(true);
+    this.shadowRoot.appendChild(this.wrapper);
+    this.shadowRoot.appendChild(style);
+    this.addListeners();
+    this.addCopyButtonTo(".animal-name", ".copy-button");
+    this.loadColor();
+  }
 
-	loadColor() {
-		const randomIndex = Math.floor(Math.random() * this.colors.length);
-		const color = this.colors[randomIndex];
-		this.shadowRoot.querySelector(".animal-name").innerHTML = color;
-	}
+  loadColor() {
+    const randomIndex = Math.floor(Math.random() * this.colors.length);
+    const color = this.colors[randomIndex];
+    this.shadowRoot.querySelector(".animal-name").innerHTML = color;
+  }
 
-	wrapper() {
-		const wrapper = this.ownerDocument.createElement("template");
-		wrapper.innerHTML = template.trim();
-		return wrapper;
-	}
+  wrapper() {
+    const wrapper = this.ownerDocument.createElement("template");
+    wrapper.innerHTML = template.trim();
+    return wrapper;
+  }
 }
 
 customElements.define("random-sentence", RandomSentence);

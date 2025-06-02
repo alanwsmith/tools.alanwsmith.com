@@ -717,96 +717,81 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <random-color></random-color>
       <script type="module" src="components/random-color.js"></script>
 
+      <hr />
+
       <unicode-characters></unicode-characters>
       <script type="module" src="components/unicode-characters.js"></script>
+
+      <hr />
 
       <lorem-ipsum></lorem-ipsum>
       <script type="module" src="components/lorem-ipsum.js"></script>
 
+      <hr />
+
       <random-animal></random-animal>
       <script type="module" src="components/random-animal.js"></script>
+
+      <hr />
 
       <random-sentence></random-sentence>
       <script type="module" src="components/random-sentence.js"></script>
 
       <hr />
 
-      <div class="flow">
-        <change-case></change-case>
-        <script type="module" src="components/change-case.js"></script>
-
-        <details class="default-flex">
-          <summary>Footnote Characters</summary>
-          <p>
-            Copy/paste characters instead of <code>&lt;sup&gt;</code> tags.
-            TODO: Add copy buttons.
-          </p>
-          <div class="default-flex">
-            <div>⁰</div>
-            <div>¹</div>
-            <div>²</div>
-            <div>³</div>
-            <div>⁴</div>
-            <div>⁵</div>
-            <div>⁶</div>
-            <div>⁷</div>
-            <div>⁸</div>
-            <div>⁹</div>
-            <div>†</div>
-            <div>‡</div>
-            <div>⸸</div>
-          </div>
-          <div class="default-flex">
-            <div>™</div>
-            <div>©</div>
-          </div>
-        </details>
-
-        <lines-to-markdown-list></lines-to-markdown-list>
-        <script
-          type="module"
-          src="components/lines-to-markdown-list.js"
-        ></script>
-
-        <sort-lines-alphabetically></sort-lines-alphabetically>
-        <script
-          type="module"
-          src="components/sort-lines-alphabetically.js"
-        ></script>
-
-        <multiline-replacer></multiline-replacer>
-        <script type="module" src="components/multiline-replacer.js"></script>
-
-        <details>
-          <summary>To Base64</summary>
-          <div>
-            <label for="base64-input">Text Input</label>
-          </div>
-          <div>
-            <textarea id="base64-input" cols="30" rows="8"></textarea>
-          </div>
-          <div>
-            <label for="base64-output">Base64 Output</label>
-          </div>
-          <div>
-            <textarea id="base64-output" cols="30" rows="8"></textarea>
-          </div>
-          <script type="module">
-            const base64Input = document.querySelector("#base64-input");
-            const base64Output = document.querySelector("#base64-output");
-            base64Input.addEventListener("input", (event) => {
-              base64Output.value = btoa(base64Input.value);
-            });
-          </script>
-        </details>
-
-        <unique-words></unique-words>
-        <script type="module" src="components/unique-words.js"></script>
-      </div>
+      <change-case></change-case>
+      <script type="module" src="components/change-case.js"></script>
 
       <hr />
 
-      <details class="flow">
+      <lines-to-markdown-list></lines-to-markdown-list>
+      <script type="module" src="components/lines-to-markdown-list.js"></script>
+
+      <hr />
+
+      <sort-lines-alphabetically></sort-lines-alphabetically>
+      <script
+        type="module"
+        src="components/sort-lines-alphabetically.js"
+      ></script>
+
+      <hr />
+      <text-replacer></text-replacer>
+      <script type="module" src="components/text-replacer.js"></script>
+
+      <hr />
+
+      <details open>
+        <summary>To Base64</summary>
+        <div>
+          <label for="base64-input">Text Input</label>
+        </div>
+        <div>
+          <textarea id="base64-input" cols="30" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="base64-output">Base64 Output</label>
+        </div>
+        <div>
+          <textarea id="base64-output" cols="30" rows="8"></textarea>
+        </div>
+        <script type="module">
+          const base64Input = document.querySelector("#base64-input");
+          const base64Output = document.querySelector("#base64-output");
+          base64Input.addEventListener("input", (event) => {
+            base64Output.value = btoa(base64Input.value);
+          });
+        </script>
+      </details>
+
+      <hr />
+
+      <unique-words></unique-words>
+      <script type="module" src="components/unique-words.js"></script>
+
+      <hr />
+
+      <details class="flow" open>
         <summary>Color Pickers</summary>
         <div class="default-flex">
           <a href="https://colors.alanwsmith.com/">My Color Picker (v4)</a>
@@ -832,7 +817,9 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </div>
       </details>
 
-      <details class="flow">
+      <hr />
+
+      <details class="flow" open>
         <summary>Misc</summary>
         <div class="default-flex">
           <a href="https://lists.alanwsmith.com/">My Lists</a>
@@ -889,7 +876,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         // })
       </script>
 
-      <details class="flow">
+      <details class="flow" open>
         <summary>Calculate Ratio</summary>
         <div>
           <label for="ratio-input-width">Width</label>
@@ -940,7 +927,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </script>
       </details>
 
-      <details class="flow">
+      <details class="flow" open>
         <summary>Width And Height From Area And Ratio (Floored)</summary>
 
         <div>

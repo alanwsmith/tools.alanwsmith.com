@@ -31,7 +31,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open >
   <summary>Text Replacer</summary>
   <div class="wrapper">
     <div>
@@ -53,7 +53,7 @@ const template = `
 </details>
 `;
 
-class MultilineReplacer extends HTMLElement {
+class TextReplacer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -140,4 +140,4 @@ class MultilineReplacer extends HTMLElement {
   }
 }
 
-customElements.define("multiline-replacer", MultilineReplacer);
+customElements.define("text-replacer", TextReplacer);

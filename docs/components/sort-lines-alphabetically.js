@@ -33,7 +33,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open>
   <summary>Sort Alphabetically</summary>
   <div class="wrapper">
       <div>

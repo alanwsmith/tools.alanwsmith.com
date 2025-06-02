@@ -166,7 +166,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open>
   <summary>Lorem Ipsum</summary>
   <div class="wrapper">
     <div>Output</div>
