@@ -91,7 +91,7 @@ style.innerHTML = `
 `;
 
 const template = `
-<details open>
+<details>
 	<summary>Random Sentence</summary>
 	<div class="wrapper">
   		<div class="animal-name"></div>

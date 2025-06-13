@@ -29,7 +29,7 @@ textarea {
 `;
 
 const template = `
-<details open>
+<details>
   <summary>HTML Escaper</summary>
   <div class="wrapper">
     <div class="input-wrapper">

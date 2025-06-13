@@ -174,7 +174,7 @@ style.innerHTML = `
 `;
 
 const template = `
-<details open>
+<details>
 <summary>Random HTML Color</summary>
 <div class="wrapper">
   <div class="color-name"></div>

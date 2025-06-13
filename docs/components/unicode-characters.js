@@ -115,7 +115,7 @@ button {
 }`;
 
 const template = `
-<details open>
+<details>
   <summary>Unicode Characters</summary>
   <div class="wrapper">
   </div>

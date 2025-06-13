@@ -30,7 +30,7 @@ textarea {
 `;
 
 const template = `
-<details open>
+<details>
   <summary>Number Line Repeater</summary>
   <div class="wrapper">
     <div class="input-wrapper">

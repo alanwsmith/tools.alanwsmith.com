@@ -31,7 +31,7 @@ textarea {
 `;
 
 const template = `
-<details open >
+<details>
   <summary>Text Replacer</summary>
   <div class="wrapper">
     <div>

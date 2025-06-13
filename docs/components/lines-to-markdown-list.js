@@ -35,7 +35,7 @@ textarea {
 `;
 
 const template = `
-<details open >
+<details>
   <summary>Lines To Markdown List</summary>
   <div class="wrapper">
       <div>
