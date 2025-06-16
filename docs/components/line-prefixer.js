@@ -1,10 +1,9 @@
 const content = [
-  `NUMBER begin 
-NUMBER with more
-etc... NUMBER
+  `alfa
+bravo
 
-
-`,
+charlie
+delta`,
 ];
 
 const style = document.createElement("style");
@@ -32,17 +31,21 @@ textarea {
 
 const template = `
 <details>
-  <summary>Number Line Repeater</summary>
+  <summary>Line Prefixer</summary>
   <div class="wrapper">
     <div class="input-wrapper">
-      <div>Input</div>
-      <textarea class="in"></textarea>
+      <label for="line-prefixer-input">Input</label>
+      <textarea class="in" id="line-prefixer-input"></textarea>
       <div>
-<label for="nlr-start">Start:</label> <input type="number" id="lnr-start" size="8" value="1"><br>
-<label for="nlr-end">End:</label> <input type="number" id="lnr-end" size="8" value="10"><br>
-<label for="nlr-step">Step:</label> <input type="number" id="lnr-step" size="8" value="1">
+        <label for="line-prefixer-prefix">Prefix</label>
+        <input 
+          type="text 
+          size="10" 
+          id="line-prefixer-prefix"
+          value="[] ">
       </div>
     </div>
+
     <div class="output-wrapper">
       <div>Output</div>
       <textarea class="out"></textarea>
@@ -52,7 +55,7 @@ const template = `
 </details>
 `;
 
-class NumberLineRepeater extends HTMLElement {
+class LinePrefixer extends HTMLElement {
   constructor() {
     super();
   }
@@ -127,19 +130,14 @@ class NumberLineRepeater extends HTMLElement {
   }
 
   makeOutput() {
-    let out = [];
-    const start = parseInt(this.el("#lnr-start").value);
-    const end = parseInt(this.el("#lnr-end").value);
-    const step = parseInt(this.el("#lnr-step").value);
-    const template = this.getValue(".in");
-    for (let n = start; n <= end; n = n + step) {
-      out.push(template.replaceAll("NUMBER", n));
-      // safety check. can be edited if needed
-      if (n > 10001) {
-        break;
+    let prefix = this.getValue("#line-prefixer-prefix");
+    let lines = this.getValue(".in").split("\n");
+    let out = lines.map((line) => {
+      if (line.trimEnd() != "") {
+        return `${prefix}${line}`;
       }
-    }
-    this.setValue(".out", out.join(""));
+    });
+    this.setValue(".out", out.join("\n"));
   }
 
   processEvent(event) {
@@ -155,4 +153,4 @@ class NumberLineRepeater extends HTMLElement {
   }
 }
 
-customElements.define("number-line-repeater", NumberLineRepeater);
+customElements.define("line-prefixer", LinePrefixer);

@@ -116,7 +116,7 @@ class TextReplacer extends HTMLElement {
     let inputs = this.in.value.split("\n");
     const output = inputs
       .filter((input) => {
-        if (input.split("|").length > 1) {
+        if (input !== "") {
           return true;
         } else {
           return false;

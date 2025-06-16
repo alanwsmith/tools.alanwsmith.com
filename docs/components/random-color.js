@@ -159,7 +159,7 @@ style.innerHTML = `
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 	margin-top: 1.4rem;
 	padding-inline: 2.2rem;
@@ -170,6 +170,7 @@ style.innerHTML = `
 }
 .color-name {
   color: var(--the-color);
+  font-size: 0.8rem;
 }
 `;
 
@@ -177,10 +178,10 @@ const template = `
 <details>
 <summary>Random HTML Color</summary>
 <div class="wrapper">
-  <div class="color-name"></div>
   <div class="color-chip"></div>
   <button>Get another one</button>
   <div class="copy-button-wrapper"></div>
+  <div class="color-name"></div>
 </div>
 </details>
 `;
