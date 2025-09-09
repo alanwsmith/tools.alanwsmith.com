@@ -1,6 +1,8 @@
 [! extends "_includes/wrapper.html" !]
 
 [! block content !]
+
+
       <div class="default-flex">
         <div>
           <label for="searchbox_input">duck duck go</label>
@@ -385,6 +387,23 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
+
+      <details>
+        <summary>Line Deduper</summary>
+        <bitty-js data-connection="/tools/deduper.js">
+          <div>
+            <textarea rows="10" data-send="update"></textarea>
+            <textarea rows="10" data-receive="update"></textarea>
+          </div>
+        </bitty-js>
+      </details>
+      <hr />
+
+
+      <lines-to-markdown-list></lines-to-markdown-list>
+      <script type="module" src="components/lines-to-markdown-list.js"></script>
+      <hr />
+
       <celsius-fahrenheit></celsius-fahrenheit>
       <script type="module" src="components/celsius-fahrenheit.js"></script>
 
@@ -433,10 +452,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
 
       <hr />
 
-      <lines-to-markdown-list></lines-to-markdown-list>
-      <script type="module" src="components/lines-to-markdown-list.js"></script>
-
-      <hr />
 
       <lorem-ipsum></lorem-ipsum>
       <script type="module" src="components/lorem-ipsum.js"></script>

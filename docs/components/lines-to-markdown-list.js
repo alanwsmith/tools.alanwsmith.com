@@ -1,13 +1,5 @@
 const content = [
-  `Drop the ashes on the worn old rug.
-Mark the spot with a sign painted red.
-When you hear the bell, come quickly.
-
-Tuck the sheet under the edge of the mat.
-
-Wake and rise, and step into the green outdoors.
-
-`,
+  ``,
 ];
 
 const style = document.createElement("style");
