@@ -388,31 +388,17 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <hr />
 
 
-      <details>
-        <summary>Line Deduper</summary>
-        <bitty-js data-connection="/tools/deduper.js">
-          <div>
-            <textarea rows="10" data-send="update"></textarea>
-            <textarea rows="10" data-receive="update"></textarea>
-          </div>
-        </bitty-js>
-      </details>
-      <hr />
 
 
       <lines-to-markdown-list></lines-to-markdown-list>
       <script type="module" src="components/lines-to-markdown-list.js"></script>
       <hr />
 
-      <celsius-fahrenheit></celsius-fahrenheit>
-      <script type="module" src="components/celsius-fahrenheit.js"></script>
-
-      <hr />
 
       <change-case></change-case>
       <script type="module" src="components/change-case.js"></script>
-
       <hr />
+
 
       <details class="flow">
         <summary>Color Pickers</summary>
@@ -439,43 +425,39 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <a href="https://terminal.sexy/">Terminal Sexy</a>
         </div>
       </details>
+      <hr />
 
+      <celsius-fahrenheit></celsius-fahrenheit>
+      <script type="module" src="components/celsius-fahrenheit.js"></script>
       <hr />
 
       <html-escaper></html-escaper>
       <script type="module" src="components/html-escaper.js"></script>
-
       <hr />
 
       <line-prefixer></line-prefixer>
       <script type="module" src="components/line-prefixer.js"></script>
-
       <hr />
 
 
       <lorem-ipsum></lorem-ipsum>
       <script type="module" src="components/lorem-ipsum.js"></script>
-
       <hr />
 
       <number-line-repeater></number-line-repeater>
       <script type="module" src="components/number-line-repeater.js"></script>
-
       <hr />
 
       <random-animal></random-animal>
       <script type="module" src="components/random-animal.js"></script>
-
       <hr />
 
       <random-color></random-color>
       <script type="module" src="components/random-color.js"></script>
-
       <hr />
 
       <random-sentence></random-sentence>
       <script type="module" src="components/random-sentence.js"></script>
-
       <hr />
 
       <sort-lines-alphabetically></sort-lines-alphabetically>
@@ -483,12 +465,21 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         type="module"
         src="components/sort-lines-alphabetically.js"
       ></script>
+      <hr />
 
+      <details>
+        <summary>Line Deduper</summary>
+        <bitty-js data-connection="/tools/deduper.js">
+          <div>
+            <textarea rows="10" data-send="update"></textarea>
+            <textarea rows="10" data-receive="update"></textarea>
+          </div>
+        </bitty-js>
+      </details>
       <hr />
 
       <text-replacer></text-replacer>
       <script type="module" src="components/text-replacer.js"></script>
-
       <hr />
 
       <details>
@@ -513,19 +504,14 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           });
         </script>
       </details>
-
       <hr />
 
       <unicode-characters></unicode-characters>
       <script type="module" src="components/unicode-characters.js"></script>
-
       <hr />
 
       <unique-words></unique-words>
       <script type="module" src="components/unique-words.js"></script>
-
-
-
       <hr />
 
       <details class="flow" open>
@@ -549,7 +535,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           <a href="https://supersnowflakemaker.com/">Snowflake Maker</a>
         </div>
       </details>
-
       <hr />
 
       <!--
@@ -585,6 +570,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         // })
       </script>
 
+<!--
       <details class="flow" open>
         <summary>Calculate Ratio</summary>
         <div>
@@ -636,6 +622,9 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </script>
       </details>
 
+-->
+
+<!--
       <details class="flow" open>
         <summary>Width And Height From Area And Ratio (Floored)</summary>
 
@@ -749,4 +738,6 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
           }
         </script>
       </details>
+-->
+
 [! endblock !]
