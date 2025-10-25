@@ -175,7 +175,7 @@ style.innerHTML = `
 `;
 
 const template = `
-<details>
+<details open>
 <summary>Random HTML Color</summary>
 <div class="wrapper">
   <div class="color-chip"></div>

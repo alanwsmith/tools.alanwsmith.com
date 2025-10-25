@@ -30,7 +30,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open>
   <summary>Line Prefixer</summary>
   <div class="wrapper">
     <div class="input-wrapper">

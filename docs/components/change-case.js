@@ -30,7 +30,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open>
   <summary>Change Case</summary>
   <div class="wrapper">
       <div>
