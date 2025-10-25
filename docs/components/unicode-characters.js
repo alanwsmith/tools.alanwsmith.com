@@ -24,41 +24,45 @@ const chars = `
 «
 »
 ⌘
+⌥
+⌃
+⇧
+
 †
 ‡
 ⸸
 ™
 ©
-₀
 ⁰
-₁
 ¹
-₂
 ²
-₃
 ³
-₄
 ⁴
-₅
 ⁵
-₆
 ⁶
-₇
 ⁷
 ⁸
+⁹
+⁺
+⁻
+⁼
+⁽
+⁾ 
+₀
+₁
+₂
+₃
+₄
+₅
+₆
+₇
 ₈
 ₉
-⁹
 ₍
-⁽
 ₎ 
-⁾ 
 ₊
-⁺
 ₋
-⁻
 ₌ 
-⁼
 ⁿ 
 ▀
 ▁
@@ -115,7 +119,7 @@ button {
 }`;
 
 const template = `
-<details>
+<details open>
   <summary>Unicode Characters</summary>
   <div class="wrapper">
   </div>

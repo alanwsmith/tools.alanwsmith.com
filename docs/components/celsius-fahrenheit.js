@@ -38,7 +38,7 @@ textarea {
 `;
 
 const template = `
-<details>
+<details open>
   <summary>Celsius and Fahrenheit</summary>
   <div class="wrapper">
     <div class="output-wrapper">

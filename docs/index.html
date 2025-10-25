@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alan's Tools</title>
+    <meta property="og:title" content="Alan's Tools" />
+    <meta
+      name="description"
+      content="My collection of online tools for various things"
+    />
+    <meta
+      property="og:description"
+      content="My collection of online tools for various things"
+    />
+    <meta property="og:url" content="https://tools.alanwsmith.com/" />
+    <meta
+      property="og:image"
+      content="https://tools.alanwsmith.com/images/og-image.jpg"
+    />
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -31,21 +47,7 @@
     <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
     <meta name="theme-color" content="#000000" />
 
-    <title>Alan's Tools</title>
-    <meta
-      name="description"
-      content="My collection of online tools for various things"
-    />
-    <meta
-      property="og:description"
-      content="My collection of online tools for various things"
-    />
-    <meta property="og:title" content="Alan's Tools" />
-    <meta property="og:url" content="https://tools.alanwsmith.com/" />
-    <meta
-      property="og:image"
-      content="https://tools.alanwsmith.com/images/og-image.jpg"
-    />
+
 
     <script>
       // Add a listener to an element by id
@@ -142,6 +144,10 @@
         color: var(--accent-color-2);
       }
 
+      bitty-js {
+        display: block;
+      }
+
       .blue {
         color: blue;
       }
@@ -236,6 +242,11 @@ main {
         padding-inline: 1rem;
       }
 
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
       ul > :where(:not(:first-child)) {
         margin-top: 1em;
       }
@@ -318,6 +329,7 @@ main {
       <a href="https://links.alanwsmith.com">other projects</a>
     </header>
   <body>
+    <bitty-js data-connect="/components/tools.js">
     <main class="flow">
       <hgroup class="flow">
         <h1>Alan's Tools</h1>
@@ -331,7 +343,6 @@ main {
         <p>It's an ongoing work-in-progress</p>
           </details>
       </hgroup>
-
 
       <div class="default-flex">
         <div>
@@ -730,7 +741,7 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <hr />
 
 
-      <details class="flow">
+      <details class="flow" open>
         <summary>Color Pickers</summary>
         <div class="default-flex">
           <a href="https://colors.alanwsmith.com/">My Color Picker (v4)</a>
@@ -760,6 +771,17 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       <celsius-fahrenheit></celsius-fahrenheit>
       <script type="module" src="components/celsius-fahrenheit.js"></script>
       <hr />
+
+      <bitty-js data-connect="/components/tools.js|CssCharacterWrapper"
+        class="two-column"
+      >
+  <details open>
+    <summary>CSS Character Wrapper</summary>
+    <p>Wraps letters in spans with class names corresponding to each one</p>
+        <div>HERE</div>  
+        <div>HERE</div>  
+  </details>
+      </bitty-js>
 
       <html-escaper></html-escaper>
       <script type="module" src="components/html-escaper.js"></script>
@@ -797,6 +819,8 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       ></script>
       <hr />
 
+
+<!--
       <details>
         <summary>Line Deduper</summary>
         <bitty-js data-connection="/tools/deduper.js">
@@ -807,12 +831,13 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
         </bitty-js>
       </details>
       <hr />
+-->
 
       <text-replacer></text-replacer>
       <script type="module" src="components/text-replacer.js"></script>
       <hr />
 
-      <details>
+      <details open>
         <summary>To Base64</summary>
         <div>
           <label for="base64-input">Text Input</label>
@@ -1084,7 +1109,9 @@ TODO: needs custom js to do `/thesaurus/SEARCHTERM`
       </div>
     </footer>
     
-    <script src="/scripts/bitty-v0.3.0.js" type="module"></script>
+    </bitty-js>
+
+    <script src="/components/bitty-1.0.0-rc3.min.js" type="module"></script>
 
   </body>
 </html>
